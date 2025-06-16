@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  account-mongodb:
+    container_name: account-mongodb
+    build:
+      context: ../../workspace/my-metrics/mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      INIT_DUMP: /dump/init.js
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD:-password}
+    volumes:
+      - ./mongodb/dump:/dump
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+    networks:
+      - spring-network
+
+networks:
+  spring-network:
+    driver: bridge

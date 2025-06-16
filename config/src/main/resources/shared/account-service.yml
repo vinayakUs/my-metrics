@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      host: account-mongodb
+      username: user
+      password: ${MONGODB_PASSWORD}
+      database: metrics
+      port: 27017
