@@ -5,5 +5,5 @@ spring:
       host: localhost
       username: user
       password: ${MONGODB_PASSWORD}
-      database:
+      database: metrics
       port: 27017

@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="packages">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/main/resources/shared/eureka.yml" afterDir="false" />
+    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="added config conf">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/src/main/resources/shared/account-service.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/src/main/resources/shared/account-service.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +161,12 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Spring Boot.AccountServiceApplication" />
+      <item itemvalue="Spring Boot.ConfigApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
@@ -188,7 +190,7 @@
       <updated>1750044316251</updated>
       <workItem from="1750044317218" duration="4099000" />
       <workItem from="1750062589171" duration="468000" />
-      <workItem from="1750063072136" duration="947000" />
+      <workItem from="1750063072136" duration="1862000" />
     </task>
     <task id="LOCAL-00001" summary="account service dto">
       <option name="closed" value="true" />
@@ -206,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750050771735</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added config conf">
+      <option name="closed" value="true" />
+      <created>1750064056069</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750064056069</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +237,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="account service dto" />
     <MESSAGE value="packages" />
-    <option name="LAST_COMMIT_MESSAGE" value="packages" />
+    <MESSAGE value="added config conf" />
+    <option name="LAST_COMMIT_MESSAGE" value="added config conf" />
   </component>
 </project>
