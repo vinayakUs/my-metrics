@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/AccountServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/test/java/org/example/accountservice/AccountServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/main/java/org/example/config/ConfigApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/main/java/org/example/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/main/resources/shared/account-service.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/src/test/java/org/example/config/ConfigApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/src/main/java/org/example/eureka/EurekaApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eureka/src/test/java/org/example/eureka/EurekaApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb/dump/init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mongodb/init.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "vinayakUs"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/vinayakUs/my-metrics.git",
+    "accountId": "4a1eae57-b015-4099-8509-62a440737d76"
+  }
+}]]></component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -61,6 +51,7 @@
   "keyToString": {
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
     "Maven.account-service [clean].executor": "Run",
+    "Maven.account-service [compile].executor": "Run",
     "Maven.account-service [install].executor": "Run",
     "Maven.config [install].executor": "Run",
     "Maven.my-metrics [clean].executor": "Run",
@@ -82,6 +73,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\vinayak\Desktop\n\my-metrics\account-service\src\main\java\org\example\accountservice" />
+      <recent name="C:\Users\vinayak\Desktop\n\my-metrics\config\src\main\java\org\example\config" />
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics" />
     </key>
   </component>
