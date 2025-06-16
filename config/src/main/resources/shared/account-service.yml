@@ -1,8 +1,9 @@
 spring:
   data:
     mongodb:
-      host: account-mongodb
+      url: mongodb://localhost:27017/metrics
+      host: localhost
       username: user
       password: ${MONGODB_PASSWORD}
-      database: metrics
+      database:
       port: 27017
