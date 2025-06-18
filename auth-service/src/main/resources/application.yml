@@ -1,6 +1,10 @@
 spring:
+  security:
+    user:
+      password: abc
+      name: user
   application:
-    name: account-service
+    name: auth-service
   config:
     import: configserver:http://localhost:8888
   cloud:
@@ -16,11 +20,9 @@ spring:
       password: password
       database: metrics
 
+server:
+  port: 9000
 
-
-app:
-  properties:
-    webclient:
-      auth-service:
-        name: 'auth-service'
-        host: 'http://localhost:8080' # in case of eureka change it to name (used in webclient)
+logging:
+  level:
+    org.springframework.security: trace

@@ -38,6 +38,7 @@
     <module>account-service</module>
     <module>config</module>
     <module>eureka</module>
+    <module>auth-service</module>
 
 
 

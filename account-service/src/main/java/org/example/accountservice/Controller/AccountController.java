@@ -1,13 +1,11 @@
 package org.example.accountservice.Controller;
 
 import org.example.accountservice.domain.Account;
+import org.example.accountservice.domain.User;
 import org.example.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -17,7 +15,7 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 	
-	@GetMapping("/{name}")
+	@GetMapping("/user/{userName}")
 	public ResponseEntity<Account> getAccount(@PathVariable String userName) {
 		
 		Account acc	= accountService.findByUserName(userName);
@@ -26,6 +24,12 @@ public class AccountController {
 		}
 		return ResponseEntity.ok(acc);
 		
+	}
+
+
+	@PostMapping("/user")
+	public ResponseEntity<Account> createAccount(@RequestBody User user) {
+		return  ResponseEntity.ok(accountService.create(user));
 	}
 
 }

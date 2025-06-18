@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-@Document(collation = "accounts")
+@Document(collection = "accounts")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 	

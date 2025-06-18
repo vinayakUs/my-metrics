@@ -1,9 +1,9 @@
-spring:
-  data:
-    mongodb:
-      url: mongodb://localhost:27017/metrics
-      host: localhost
-      username: user
-      password: ${MONGODB_PASSWORD}
-      database: metrics
-      port: 27017
+#spring:
+#  data:
+#    mongodb:
+#      url: 'mongodb+srv://user:Password1234@cluster0.yb7thyo.mongodb.net/metrics?ssl=true'
+##      host: localhost
+##      username: user
+##      password: ${MONGODB_PASSWORD}
+##      database: metrics
+#      port: 27017

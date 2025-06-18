@@ -4,7 +4,7 @@ services:
   account-mongodb:
     container_name: account-mongodb
     build:
-      context: ../../workspace/my-metrics/mongodb
+      context: ./mongodb
     restart: always
     ports:
       - "27017:27017"
