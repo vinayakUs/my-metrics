@@ -1,17 +1,21 @@
 spring:
-  security:
-    user:
-      password: abc
-      name: user
+#  security:
+#    user:
+#      password: a
+#      name: a
   application:
     name: auth-service
-  config:
-    import: configserver:http://localhost:8888
+
   cloud:
     config:
-      fail-fast: true
-      password: ${CONFIG_SERVICE_PASSWORD}
-      username: user
+      enabled: false
+  #  config:
+#    import: configserver:http://localhost:8888
+#  cloud:
+#    config:
+#      fail-fast: false
+#      password: ${CONFIG_SERVICE_PASSWORD}
+#      username: user
   data:
     mongodb:
       host: localhost

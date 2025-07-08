@@ -1,6 +1,6 @@
 package com.example.authservice.entity;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,19 +8,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 @Document(collection = "users")
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 public class User implements UserDetails {
 
     @Id
-    private String userName;
+    private String username;
 
     private String password;
 
     private boolean enabled = true;
+
+    public User(User user) {
+        this.username = user.username;
+        this.password = user.password;
+        this.enabled = user.enabled;
+    }
 
 
 
@@ -47,7 +52,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
 }
