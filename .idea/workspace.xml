@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="added config conf">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
+    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="added user service mongo">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/ExceptionAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/piggy-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/static/images/piggy-small.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/entity/MyUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/exception/ControllerExceptionAdvice.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/exception/ControllerExceptionAdvice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/MongoUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/MongoUserDetailsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,13 +28,14 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,12 +46,12 @@
     &quot;assignee&quot;: &quot;vinayakUs&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/vinayakUs/my-metrics.git",
-    "accountId": "7e9d2c45-98cc-43fa-bc8f-19e1f0200676"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vinayakUs/my-metrics.git&quot;,
+    &quot;accountId&quot;: &quot;7e9d2c45-98cc-43fa-bc8f-19e1f0200676&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -62,6 +66,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "Docker.mongodb/Dockerfile.executor": "Run",
     "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
@@ -81,13 +86,15 @@
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SHELLCHECK.PATH": "C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "Spring Boot.AccountServiceApplication.executor": "Run",
     "Spring Boot.AuthServiceApplication.executor": "Run",
+    "Spring Boot.ClientApplication.executor": "Run",
     "Spring Boot.ConfigApplication.executor": "Run",
     "Spring Boot.EurekaApplication.executor": "Run",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/my-metrics",
+    "last_opened_file_path": "D:/my-metrics/client/src/main/resources/static/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -102,7 +109,12 @@
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\my-metrics\client\src\main\resources\static\images" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\my-metrics\client\src\main\resources\static\images" />
+      <recent name="D:\my-metrics\client\src\main\resources\static\img" />
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics\account-service\src\main\java\org\example\accountservice" />
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics\config\src\main\java\org\example\config" />
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics" />
@@ -156,6 +168,14 @@
           <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
         </ENTRIES>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="client" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.client.ClientApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -224,6 +244,7 @@
     <list>
       <item itemvalue="Docker.mongodb/Dockerfile" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
@@ -258,6 +279,9 @@
       <workItem from="1750150325466" duration="3449000" />
       <workItem from="1750164541374" duration="10170000" />
       <workItem from="1750223595977" duration="15005000" />
+      <workItem from="1752077814019" duration="4194000" />
+      <workItem from="1752087288268" duration="2119000" />
+      <workItem from="1752150336445" duration="9573000" />
     </task>
     <task id="LOCAL-00001" summary="account service dto">
       <option name="closed" value="true" />
@@ -283,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750064056069</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added user service mongo">
+      <option name="closed" value="true" />
+      <created>1751978915320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1751978915320</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,8 +336,10 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="account service dto" />
     <MESSAGE value="packages" />
+    <MESSAGE value="added files" />
     <MESSAGE value="added config conf" />
-    <option name="LAST_COMMIT_MESSAGE" value="added config conf" />
+    <MESSAGE value="added user service mongo" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user service mongo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
