@@ -13,34 +13,27 @@
             font-family: 'Inter', sans-serif;
         }
 
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background: #f3f4f6; /* light gray, clean feel */
-        }
-
-        .login-button {
-            background-color: #1d4ed8; /* ThemeLead-like blue */
-            color: white;
-            padding: 14px 32px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .login-button:hover {
-            background-color: #2563eb; /* darker blue on hover */
-        }
+      .login-button{
+          height: 30px;
+          width: 60px;
+      }
     </style>
 </head>
 <body>
 <a href="/oauth2/authorization/messaging-client-oidc">
     <button class="login-button">Login</button>
 </a>
+
+<form method="post" style="" th:action="@{/signup}"  th:object="${user}">
+    <label for="username">Username:</label>
+    <input type="text" th:field="*{username}" id="username" required/><br/>
+
+    <label for="password">Password:</label>
+    <input type="password" th:field="*{password}" id="password" required />
+
+    <button class="login-button" type="submit">Sign Up </button>
+</form>
+<p th:if="${message}" th:text="${message}"></p>
+
 </body>
 </html>

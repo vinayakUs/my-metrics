@@ -1,11 +1,18 @@
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+
+
   application:
     name: account-service
   config:
-    import: configserver:http://localhost:8888
+    import: optional:configserver:http://localhost:8888
   cloud:
     config:
-      fail-fast: true
+      fail-fast: false
       password: ${CONFIG_SERVICE_PASSWORD}
       username: user
   data:
@@ -15,12 +22,25 @@ spring:
       username: user
       password: password
       database: metrics
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+    hostname: localhost
 
-
-
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 app:
   properties:
     webclient:
       auth-service:
         name: 'auth-service'
-        host: 'http://localhost:8080' # in case of eureka change it to name (used in webclient)
+        host: 'http://localhost:8761' # in case of eureka change it to name (used in webclient)
+server:
+  port: 8083
+  address: localhost
+
+

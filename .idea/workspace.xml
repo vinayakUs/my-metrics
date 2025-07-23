@@ -4,9 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="added user service mongo">
+    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="apiresponsedto + ui modal fix">
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/dto/ApiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/Advice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/ResourceAlreadyExist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/ResourceNotFound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/dto/response/ApiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/config/WebClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/ApiResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/AccountServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +40,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,51 +73,54 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2yZZz22bc8XHo1Rif4lXICHL9IX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.mongodb/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.auth-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.config [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.my-metrics [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.my-metrics [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ConfigApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/my-metrics/client/src/main/resources/static/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Docker.mongodb/Dockerfile.executor": "Run",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.account-service [clean].executor": "Run",
+    "Maven.account-service [compile].executor": "Run",
+    "Maven.account-service [install].executor": "Run",
+    "Maven.auth-service [clean].executor": "Run",
+    "Maven.config [install].executor": "Run",
+    "Maven.my-metrics [clean].executor": "Run",
+    "Maven.my-metrics [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.AuthServiceApplication.executor": "Run",
+    "Spring Boot.ClientApplication.executor": "Run",
+    "Spring Boot.ConfigApplication.executor": "Run",
+    "Spring Boot.EurekaApplication.executor": "Run",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/my-metrics/client/src/main/resources/static/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -233,9 +260,9 @@
     <list>
       <item itemvalue="Docker.mongodb/Dockerfile" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
-      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
     </list>
@@ -271,7 +298,17 @@
       <workItem from="1752077814019" duration="4194000" />
       <workItem from="1752087288268" duration="2119000" />
       <workItem from="1752150336445" duration="9573000" />
-      <workItem from="1752250569754" duration="8504000" />
+      <workItem from="1752250569754" duration="8539000" />
+      <workItem from="1752513649011" duration="4337000" />
+      <workItem from="1752518253725" duration="578000" />
+      <workItem from="1752585715468" duration="22090000" />
+      <workItem from="1752854621734" duration="5192000" />
+      <workItem from="1752863490511" duration="2175000" />
+      <workItem from="1752865688796" duration="10000" />
+      <workItem from="1752867669986" duration="424000" />
+      <workItem from="1752902305319" duration="5262000" />
+      <workItem from="1753120447819" duration="2105000" />
+      <workItem from="1753267796247" duration="8428000" />
     </task>
     <task id="LOCAL-00001" summary="account service dto">
       <option name="closed" value="true" />
@@ -305,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751978915320</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ui">
+      <option name="closed" value="true" />
+      <created>1752260669218</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1752260669218</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,37 +374,33 @@
     <MESSAGE value="added files" />
     <MESSAGE value="added config conf" />
     <MESSAGE value="added user service mongo" />
-    <option name="LAST_COMMIT_MESSAGE" value="added user service mongo" />
+    <MESSAGE value="ui" />
+    <MESSAGE value="apiresponsedto + ui modal fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="apiresponsedto + ui modal fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>49</line>
+          <line>53</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>55</line>
+          <line>60</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>57</line>
+          <line>62</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

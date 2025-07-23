@@ -1,7 +1,11 @@
 package org.example.accountservice.Controller;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import lombok.extern.slf4j.Slf4j;
 import org.example.accountservice.domain.Account;
 import org.example.accountservice.domain.User;
+import org.example.accountservice.dto.ApiResponseDto;
 import org.example.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
+@Slf4j
 @RequestMapping("/accounts")
 public class AccountController {
 	
@@ -16,20 +21,21 @@ public class AccountController {
 	private AccountService accountService;
 	
 	@GetMapping("/user/{userName}")
-	public ResponseEntity<Account> getAccount(@PathVariable String userName) {
+	public ResponseEntity<Account> getAccount(@Valid @NotNull @PathVariable String userName) {
 		
 		Account acc	= accountService.findByUserName(userName);
-		if(acc==null) {
-			return ResponseEntity.notFound().build();
-		}
+
 		return ResponseEntity.ok(acc);
 		
 	}
 
 
 	@PostMapping("/user")
-	public ResponseEntity<Account> createAccount(@RequestBody User user) {
-		return  ResponseEntity.ok(accountService.create(user));
+	public ResponseEntity<ApiResponseDto<Account>> createAccount(@Valid @RequestBody User user) {
+        log.info("Creating account received {}", user.getUsername());
+		return  ResponseEntity.ok(new ApiResponseDto<Account>(
+				true , accountService.create(user)
+		));
 	}
 
 }

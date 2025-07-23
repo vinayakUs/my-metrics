@@ -5,6 +5,8 @@ import org.example.accountservice.domain.Account;
 import org.example.accountservice.domain.Currency;
 import org.example.accountservice.domain.Saving;
 import org.example.accountservice.domain.User;
+import org.example.accountservice.exceptions.ResourceAlreadyExist;
+import org.example.accountservice.exceptions.ResourceNotFound;
 import org.example.accountservice.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -34,11 +37,12 @@ public class AccountServiceImpl implements AccountService {
 	 */
 	@Override
 	public Account findByUserName(String userName) {
-
-		Assert.hasText(userName, "Account name must not be null or empty");
-		return repo.findByUserName(userName);
-
-	}
+		Optional<Account> acc = repo.findByUserName(userName);
+		if(acc.isEmpty()) {
+			throw new ResourceNotFound("No user Exist for username: " + userName);
+		}
+        return repo.findByUserName(userName).get();
+    }
 
 	/**
 	 * {@inheritDoc}
@@ -47,11 +51,12 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account create(User user) {
 
-		Account existing = repo.findByUserName(user.getUserName());
-		log.info("accoutn found for user: " + existing);
-		if(existing != null) {
-			throw new ResponseStatusException(HttpStatus.CONFLICT, "Account already exists username: " + user.getUserName());
+		Optional<Account> existing = repo.findByUserName(user.getUsername());
+
+		if (existing.isPresent()) {
+			throw new ResourceAlreadyExist( "Account already exists username: " + user.getUsername());
 		}
+
 
 		authClient.createUser(user).block();
 
@@ -63,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
 		saving.setCapitalization(false);
 
 		Account account = new Account();
-		account.setUsername(user.getUserName());
+		account.setUsername(user.getUsername());
 		account.setLastSeen(new Date());
 		account.setSaving(saving);
 

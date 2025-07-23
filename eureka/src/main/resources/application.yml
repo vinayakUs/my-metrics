@@ -2,10 +2,10 @@ spring:
   application:
     name: eureka
   config:
-    import: configserver:http://localhost:8888
+    import: optional:configserver:http://localhost:8888
   cloud:
     config:
-      fail-fast: true
+      fail-fast: false
       password: ${CONFIG_SERVICE_PASSWORD}
       username: user
 eureka:
@@ -14,3 +14,5 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+server:
+  port: 8761

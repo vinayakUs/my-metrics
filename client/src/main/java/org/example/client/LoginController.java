@@ -1,6 +1,7 @@
 package org.example.client;
 
 
+import org.example.client.dto.UserDto;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 
     @GetMapping("/login")
-    public String login(Authentication authentication) {
+    public String login(Authentication authentication,Model model) {
+        model.addAttribute("user", new UserDto());
         if(authentication != null &&  authentication.isAuthenticated()){
             return "redirect:/";
         }
