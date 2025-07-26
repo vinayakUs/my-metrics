@@ -38,10 +38,10 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public Account findByUserName(String userName) {
 		Optional<Account> acc = repo.findByUserName(userName);
-		if(acc.isEmpty()) {
-			throw new ResourceNotFound("No user Exist for username: " + userName);
+		if(acc.isPresent()) {
+			return repo.findByUserName(userName).get();
 		}
-        return repo.findByUserName(userName).get();
+		throw new ResourceNotFound("No user Exist for username: " + userName);
     }
 
 	/**
@@ -77,6 +77,26 @@ public class AccountServiceImpl implements AccountService {
 		log.info("Account created: " + account.getUsername());
 
 		return account;
+	}
+
+	/**
+	 *{@inheritDoc}
+	 */
+	@Override
+	public Account updateAccount(String userName, Account account) {
+
+		Optional<Account> existingO = repo.findByUserName(userName);
+		if( existingO.isPresent()) {
+			Account existing = existingO.get();
+			existing.setLastSeen(account.getLastSeen());
+			existing.setSaving(account.getSaving());
+			existing.setIncomes(account.getIncomes());
+			existing.setExpenses(account.getExpenses());
+			repo.save(existing);
+			return existing;
+		}
+		throw new ResourceNotFound("No user Details exist for username: " + userName);
+
 	}
 
 }

@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientException;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.ParseException;
 import java.util.Map;
@@ -34,13 +35,11 @@ public class UserController {
     @Qualifier("default-client-web-client")
     WebClient.Builder webClient;
 
-    @Autowired
-    private InMemoryClientRegistrationRepository clientRegistrationRepository;
 
 
 
     @PostMapping("/signup")
-    public String signup(@ModelAttribute UserDto user, Model model ) {
+    public String signup(@ModelAttribute UserDto user, RedirectAttributes  model ) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
@@ -56,7 +55,8 @@ public class UserController {
             ApiResponseDto<?> res= mapper.readValue(response, new TypeReference<ApiResponseDto<?>>(){});
 
 
-            model.addAttribute("message", "Signup Successful " + res.getData());
+
+            model.addFlashAttribute("message", "Signup Successful " + res.getData() );
         }
         catch (WebClientResponseException ex){
             String errorBody = ex.getResponseBodyAsString();
@@ -72,33 +72,25 @@ public class UserController {
 
                     fieldError.forEach((k,v)-> stringBuilder.append(k).append(": ").append(v).append(";"));
 
-                    model.addAttribute("message",stringBuilder.toString());
+                    model.addFlashAttribute("message",stringBuilder.toString());
 
 
                 }else if(dataNode != null && dataNode.isTextual() ) {
                     String message = dataNode.asText();
-                    model.addAttribute("message","Signup failed: "+ message);
+                    model.addFlashAttribute("message","Signup failed: "+ message);
                 }
 
             }catch (Exception exception){
-                model.addAttribute("message", "Signup failed: unknown error format");
+                model.addFlashAttribute("message", "Signup failed: unknown error format");
 
             }
-
-
-
-
 
         }
 
         catch (Exception e) {
-
-            e.printStackTrace();
             model.addAttribute("message", "Signup failed: " + e.getMessage());
-
         }
-        model.addAttribute("user", new UserDto());
-        return "login";
+        return "redirect:/login";
 
 
     }

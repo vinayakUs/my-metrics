@@ -21,6 +21,12 @@ public  interface AccountService {
 	 * @return null
 	 */
 	Account create(User user);
-	
-	
+
+
+	/**
+	 * @param userName username of account
+	 * @param account Updated account Object
+	 * @return account updated account object from db
+	 */
+    Account updateAccount(String userName, Account account);
 }

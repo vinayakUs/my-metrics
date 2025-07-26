@@ -12,4 +12,6 @@ public interface AccountRepository extends CrudRepository<Account, String> {
 	
 	Optional<Account> findByUserName(String userName);
 
+//	Optional<Account> updateAccountByUsername(String userName, Account account);
+
 }

@@ -21,12 +21,13 @@ public class AccountController {
 	private AccountService accountService;
 	
 	@GetMapping("/user/{userName}")
-	public ResponseEntity<Account> getAccount(@Valid @NotNull @PathVariable String userName) {
+	public ResponseEntity<ApiResponseDto<Account>> getAccount(@Valid @NotNull @PathVariable String userName) {
 		
 		Account acc	= accountService.findByUserName(userName);
 
-		return ResponseEntity.ok(acc);
-		
+		return  ResponseEntity.ok(new ApiResponseDto<Account>(
+				true , acc
+		));
 	}
 
 
@@ -37,5 +38,15 @@ public class AccountController {
 				true , accountService.create(user)
 		));
 	}
+
+	@PutMapping("/user")
+	public ResponseEntity<ApiResponseDto<Account>> updateAccount(   @RequestBody Account account) {
+		String userName="aaa";
+		return ResponseEntity.ok(new ApiResponseDto<>(
+				true,
+				accountService.updateAccount(userName,account)
+		));
+	}
+
 
 }

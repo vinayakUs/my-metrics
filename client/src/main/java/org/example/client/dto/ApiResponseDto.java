@@ -11,11 +11,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
  * endpoints.
  */
 public class ApiResponseDto<T> {
-    private final T data;
-    private final boolean success;
-    private final String path;
-    private final String cause;
-    private final String timestamp;
+    private  T data;
+    private  boolean success;
+    private  String path;
+    private  String cause;
+    private  String timestamp;
+
+    public ApiResponseDto(){
+
+    }
 
     public ApiResponseDto(boolean success, T data) {
         this.timestamp = Instant.now().toString();

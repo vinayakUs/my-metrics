@@ -5,32 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="apiresponsedto + ui modal fix">
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/dto/ApiResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/Advice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/ResourceAlreadyExist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/ResourceNotFound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/dto/response/ApiResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/config/WebClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/ApiResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/UserDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Saving.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/TimePeriod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/AccountServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/AccountServiceApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/ApiResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/dto/ApiResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +99,7 @@
     "Spring Boot.EurekaApplication.executor": "Run",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/my-metrics/client/src/main/resources/static/images",
+    "last_opened_file_path": "D:/my-metrics/client/src/main/java/org/example/client/domain",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -126,6 +115,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\my-metrics\client\src\main\java\org\example\client\domain" />
       <recent name="D:\my-metrics\client\src\main\resources\static\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -309,6 +299,8 @@
       <workItem from="1752902305319" duration="5262000" />
       <workItem from="1753120447819" duration="2105000" />
       <workItem from="1753267796247" duration="8428000" />
+      <workItem from="1753280117711" duration="19124000" />
+      <workItem from="1753527849144" duration="7258000" />
     </task>
     <task id="LOCAL-00001" summary="account service dto">
       <option name="closed" value="true" />
@@ -350,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752260669218</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="apiresponsedto + ui modal fix">
+      <option name="closed" value="true" />
+      <created>1753280249952</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1753280249952</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,19 +382,29 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="4" />
+          <line>87</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="5" />
+          <line>88</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
