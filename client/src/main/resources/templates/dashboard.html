@@ -298,34 +298,70 @@
         .save-btn:hover {
             background: #a6d7e9;
         }
+        .scrollable-container {
+            overflow-y: auto;
+            scrollbar-width: none;          /* Firefox */
+            -ms-overflow-style: none;       /* Internet Explorer */
+        }
+        .scrollable-container::-webkit-scrollbar {
+            display: none;                  /* Chrome, Safari */
+        }
+
 
     </style>
 </head>
 <body class="bg-white text-dark">
 <div class="main-content">
     <div class="container text-center mt-5">
-<!--        <img alt="Piggy Icon" src="/images/piggy-icon.svg" style="width: 96px;">-->
-<!--        <h1 class="mt-3 fw-bold">PIGGY <br> <span class="fw-light">METRICS</span></h1>-->
+        <img alt="Piggy Icon" src="/images/piggy-icon.svg" style="width: 96px;">
+        <h1 class="mt-3 fw-bold">PIGGY <br> <span class="fw-light">METRICS</span></h1>
     </div>
     <div class="container mt-5">
 
 
-        <div class="row text-center">
+        <div class="row d-flex justify-content-evenly text-center">
 
             <!-- Incomes -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-3     mb-4">
                 <div class="d-flex align-items-center justify-content-center mb-2" style="gap: 8px;">
-                    <button class="circle-button d-flex align-items-center justify-content-center" onclick="toggleModal('income',true)"
-                            style="width: 24px; height: 24px; font-size: 16px; border-width: 1px;">
-                        +
+
+                    <button style="width: 24px; height: 24px;" class="plus-button" onclick="toggleModal('income',true)">
+                        <span class="plus-horizontal"></span>
+                        <span class="plus-vertical"></span>
                     </button>
+
+
                     <div class="section-title m-0">INCOMES</div>
                 </div>
-                <hr class="border-info opacity-50 w-50 mx-auto">
+                <hr class="border-info opacity-50  mx-auto">
 
-                <div th:if="${account.getIncomes() != null and !account.incomes.isEmpty() }">
-                    <h1>Values present</h1>
-                </div>
+                <div style="max-height: 300px" class="scrollable-container" th:if="${account.getIncomes() != null and !account.incomes.isEmpty() }">
+
+                    <div class="d-flex flex-column gap-2">
+
+                        <div th:each="income : ${account.incomes}"
+                             class="d-flex justify-content-between align-items-center border-bottom px-2 py-2"
+                             style="min-width: 100%;">
+                            <!-- Left: Icon + Title -->
+                            <div class="d-flex align-items-center gap-2 w-50">
+                                <span class="fs-5" th:text="${income.icon}">💰</span>
+                                <span class="text-muted" th:text="${income.title}">Income Title</span>
+                            </div>
+                            <!-- Right: Amount + Currency -->
+                            <div class="text-end w-50">
+                                <div class="fw-bold" th:text="12">1,000</div>
+                                <div class="small text-muted">
+                                    <span th:text="${income.currency}">USD</span>
+                                    <span th:if="${income.period != null}"> / <span th:text="${income.period}">MONTH</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+
+
+                 </div>
                 <div th:unless="${account.getIncomes() != null and !account.incomes.isEmpty() }">
 
                     <div class="section-subtitle mb-2">EMPTY SPACE</div>
@@ -345,33 +381,84 @@
             </div>
 
             <!-- Expenses -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-3 mb-4">
                 <div class="d-flex align-items-center justify-content-center mb-2" style="gap: 8px;">
-                    <button class="circle-button d-flex align-items-center justify-content-center" onclick="toggleModal('expense',true)"
-                            style="width: 24px; height: 24px; font-size: 16px; border-width: 1px;">
-                        +
+                    <button style="width: 24px; height: 24px;" class="plus-button" onclick="toggleModal('expense',true)">
+                        <span class="plus-horizontal"></span>
+                        <span class="plus-vertical"></span>
                     </button>
                     <div class="section-title m-0">EXPENSES</div>
                 </div>
-                <hr class="border-info opacity-50 w-50 mx-auto">
-                <div class="section-subtitle mb-3">EMPTY SPACE</div>
-                <button class="plus-button" onclick="toggleModal('expense',true)">
-                    <span class="plus-horizontal"></span>
-                    <span class="plus-vertical"></span>
-                </button>
-                <div class="mt-2" style="font-size: 0.8rem; color: #6c757d;">ADD EXPENSE</div>
+                <hr class="border-info opacity-50  mx-auto">
+<!--                <div style="max-height: 300px" class="scrollable-container" th:if="${account.getIncomes() != null and !account.incomes.isEmpty() }">-->
+
+                <div th:if="${account.getExpenses() != null and !account.expenses.isEmpty()}">
+
+                    <div class="d-flex flex-column gap-2">
+
+                        <div th:each="expense : ${account.expenses}"
+                             class="d-flex justify-content-between align-items-center border-bottom px-2 py-2"
+                             style="min-width: 100%;">
+                            <!-- Left: Icon + Title -->
+                            <div class="d-flex align-items-center gap-2 w-50">
+                                <span class="fs-5" th:text="${expense.icon}">💰</span>
+                                <span class="text-muted" th:text="${expense.title}">Income Title</span>
+                            </div>
+                            <!-- Right: Amount + Currency -->
+                            <div class="text-end w-50">
+                                <div class="fw-bold" th:text="12">1,000</div>
+                                <div class="small text-muted">
+                                    <span th:text="${expense.currency}">USD</span>
+                                    <span th:if="${expense.period != null}"> / <span th:text="${expense.period}">MONTH</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                </div>
+
+                <div th:unless="${account.getExpenses() != null and !account.expenses.isEmpty()}">
+
+                    <div class="section-subtitle mb-3">EMPTY SPACE</div>
+                    <button class="plus-button" onclick="toggleModal('expense',true)">
+                        <span class="plus-horizontal"></span>
+                        <span class="plus-vertical"></span>
+                    </button>
+                    <div class="mt-2" style="font-size: 0.8rem; color: #6c757d;">ADD EXPENSE</div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
             </div>
 
 
             <!-- Savings -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-3 mb-4">
                 <div class="d-flex align-items-center justify-content-center gap-2 mb-2">
                     <span>$</span>
                     <div class="section-title m-0">SAVINGS</div>
                 </div>
 
 
-                <hr class="border-info opacity-50 w-50 mx-auto">
+                <hr class="border-info opacity-50  mx-auto">
 
 
                 <div class="d-flex justify-content-center align-items-start mt-3">
