@@ -4,6 +4,9 @@ package org.example.client.controller;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.example.client.domain.Account;
+import org.example.client.domain.Currency;
+import org.example.client.domain.Item;
+import org.example.client.domain.TimePeriod;
 import org.example.client.dto.ApiResponseDto;
 import org.example.client.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -59,6 +66,8 @@ public class LoginController {
         model.addAttribute("username", principal.getAttributes().get("sub"));
 
 
+        model.addAttribute("message", "Welcome back!");
+        model.addAttribute("toastType", "text-bg-success"); // green toast
 
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -72,10 +81,11 @@ public class LoginController {
             System.out.println(response);
             Account account = objectMapper.readValue(response, new TypeReference<ApiResponseDto<Account>>() {
             }).getData();
-            model.addAttribute("account", account);
-            System.out.println("account value is");
 
-            System.out.println(account.toString());
+            System.out.println("fetch account is: " + account);
+
+            model.addAttribute("account", account);
+
 
 
         }catch (Exception e){

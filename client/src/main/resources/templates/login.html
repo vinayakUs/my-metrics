@@ -24,7 +24,7 @@
     <button class="login-button">Login</button>
 </a>
 
-<form method="post" style="" th:action="@{/signup}"  th:object="${user}">
+<form method="post" style=""  th:action="@{/signup}" th:object="${user}">
     <label for="username">Username:</label>
     <input type="text" th:field="*{username}" id="username" required/><br/>
 

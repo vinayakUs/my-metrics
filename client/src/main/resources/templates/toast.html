@@ -1,0 +1,58 @@
+<div th:fragment="toast(message, toastType)">
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <!-- Toast container (top-right) -->
+        <div class="toast-container position-fixed top-0 end-0 p-3" id="toastContainer">
+            <!-- Template toast (cloned dynamically) -->
+            <div class="toast d-none" id="toastTemplate" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header">
+                    <strong class="me-auto toast-title">Notification</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body toast-body-content">
+                    Message here
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Common JS to support both Thymeleaf and JS-driven toasts -->
+    <script th:inline="javascript">
+        window.addEventListener('DOMContentLoaded', function () {
+            var toastEl = document.getElementById('globalToast');
+            if (toastEl && toastEl.hasAttribute("th:if")) {
+                var toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            }
+        });
+
+        function showToast(message, type = 'text-bg-success', title = 'Notification') {
+            const container = document.getElementById('toastContainer');
+            const template = document.getElementById('toastTemplate');
+
+            if (!container || !template) return;
+
+            // Clone the hidden toast
+            const newToast = template.cloneNode(true);
+            newToast.id = ''; // Remove ID from clone
+            newToast.classList.remove('d-none');
+            newToast.classList.add(type);
+
+            // Set title and message
+            newToast.querySelector('.toast-title').innerText = title;
+            newToast.querySelector('.toast-body-content').innerText = message;
+
+            // Append to container
+            container.appendChild(newToast);
+
+            // Create and show the toast
+            const toastInstance = new bootstrap.Toast(newToast);
+            toastInstance.show();
+
+            // Optional: auto-remove the toast DOM element after hidden
+            newToast.addEventListener('hidden.bs.toast', () => {
+                newToast.remove();
+            });
+        }
+    </script>
+</div>

@@ -15,7 +15,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Account {
 	
-	private String userName;
+	private String username;
 	
 	private Date lastSeen;
 	

@@ -9,6 +9,7 @@ import org.example.accountservice.dto.ApiResponseDto;
 import org.example.accountservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -40,11 +41,13 @@ public class AccountController {
 	}
 
 	@PutMapping("/user")
-	public ResponseEntity<ApiResponseDto<Account>> updateAccount(   @RequestBody Account account) {
-		String userName="aaa";
+	public ResponseEntity<ApiResponseDto<Account>> updateAccount(Authentication authentication , @RequestBody Account account) {
+
+		System.out.println(" -----id----- " + authentication.getName());
+
 		return ResponseEntity.ok(new ApiResponseDto<>(
 				true,
-				accountService.updateAccount(userName,account)
+				accountService.updateAccount(authentication.getName(),account)
 		));
 	}
 
