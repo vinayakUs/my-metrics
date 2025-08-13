@@ -654,7 +654,16 @@
     }
 
 
+    function startOAuthFlow(clientId) {
+        const authWindow = window.open(`/oauth2/authorization/${clientId}`, 'oauth2Login', 'width=600,height=700');
 
+        const checkAuth = setInterval(() => {
+            if (authWindow.closed) {
+                clearInterval(checkAuth);
+                saveData();
+            }
+        }, 1000);
+    }
 
 
     function toggleModal(type , open ) {
@@ -708,20 +717,26 @@
         $("#save-account-change-button").click(function (e){
             e.preventDefault();
             console.log("Clicked");
+            const clientId = 'downstream-client';
+
             console.log(JSON.stringify(account))
 
             $.ajax({
-                url: '/account',
-                type: 'PUT',
+                url:  `/client-status?clientId=${encodeURIComponent(clientId)}`,
+                type: 'GET',
                 contentType: 'application/json',
-                data:JSON.stringify(account),
-                success: function (response){
-                    showToast('Account updated successfully!', 'text-bg-success', 'Success');
-                    console.log("Success:", response);
+                success: function (status) {
+                    if (status.connected) {
+                        console.log(`Already connected to ${clientId}, saving directly...`);
+                        // saveData();
+                    } else {
+                        console.log(`Not connected to ${clientId}, starting OAuth...`);
+                        startOAuthFlow(clientId);
+                    }
                 },
+
                 error: function (xhr, status, error) {
-                    console.error("Error:", error);
-                    showToast('Failed to update account!', 'text-bg-danger', 'Error');
+                    console.error("Status check failed:", error);
                 }
             });
         });

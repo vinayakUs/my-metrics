@@ -49,7 +49,7 @@ public class UserController {
     private OAuth2AuthorizedClientManager clientManager;
 
 
-    @PutMapping("/account")
+    @PostMapping("/account")
     @ResponseBody
     public ResponseEntity<String> updateAccount(@RequestBody Account account, OAuth2AuthenticationToken token) {
         System.out.println("update account value is " + account);
