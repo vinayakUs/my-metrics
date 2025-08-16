@@ -17,10 +17,14 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequestMapping("/accounts")
 public class AccountController {
+
+	private final AccountService accountService;
+
+	public AccountController(AccountService accountService) {
+		this.accountService = accountService;
+	}
 	
-	@Autowired
-	private AccountService accountService;
-	
+
 	@GetMapping("/user/{userName}")
 	public ResponseEntity<ApiResponseDto<Account>> getAccount(@Valid @NotNull @PathVariable String userName) {
 		
@@ -45,9 +49,13 @@ public class AccountController {
 
 		System.out.println(" -----id----- " + authentication.getName());
 
+		Account account_update = accountService.updateAccount(authentication.getName(),account);
+
+		System.out.println(account_update.toString());
+
 		return ResponseEntity.ok(new ApiResponseDto<>(
-				true,
-				accountService.updateAccount(authentication.getName(),account)
+				true,account_update
+
 		));
 	}
 
