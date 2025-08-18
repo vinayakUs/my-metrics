@@ -8,6 +8,7 @@ function addItem(type){
     const modalId = type === 'income' ? 'income':'expense';
 
     if(modalId === 'income'){
+        console.log('income')
 
         const amount = parseFloat(document.getElementById("income-amount-input").value);
         const currency = document.getElementById("income-currency-select").value;
@@ -29,6 +30,7 @@ function addItem(type){
         console.log(newItem)
         console.log(account)
     }else if(modalId === 'expense'){
+        console.log('expense')
 
         const amount = parseFloat(document.getElementById("expense-amount-input").value);
         const currency = document.getElementById("expense-currency-select").value;

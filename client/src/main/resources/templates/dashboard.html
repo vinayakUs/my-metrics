@@ -215,7 +215,6 @@
                             <h2>ADD Income</h2>
                             <button class="close-btn" onclick="toggleModal('income' , false)">×</button>
                         </div>
-<!--                        <form th:action="@{/addExpense}" method="post">-->
                         <form >
                             <div class="input-section">
                                 <input id="income-amount-input" type="number" step="0.01" value="0" class="amount-input" name="amount" required />
@@ -297,7 +296,7 @@
                                 </div>
                                 <input title="title-expense-input" type="text" placeholder="TITLE" class="title-input" name="name" required />
                                 <input type="hidden" id="expenseIconInput" name="icon" value="🛒" />
-                                <button type="submit"  id="save-expense-model-button"  onclick="addItem('expense')" class="save-btn">SAVE CHANGES</button>
+                                <button type="button"  id="save-expense-model-button"  onclick="addItem('expense')" class="save-btn">SAVE CHANGES</button>
                             </div>
                         </form>
                     </div>
