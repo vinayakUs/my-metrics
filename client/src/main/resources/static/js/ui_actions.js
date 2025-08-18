@@ -1,34 +1,58 @@
 let account = window.initialAccount || {};
 if (!account.incomes) account.incomes = []; // Safety check
+if (!account.expenses) account.expenses = []; // Safety check
 
 
 
-function addItem(){
-    const amount = parseFloat(document.getElementById("income-amount-input").value);
-    const currency = document.getElementById("income-currency-select").value;
-    const period = document.getElementById("income-type-select").value;
-    const icon = document.getElementById("incomeIconInput").value;
-    const title = document.querySelector('input[title="title-income-input"]').value;
+function addItem(type){
+    const modalId = type === 'income' ? 'income':'expense';
+
+    if(modalId === 'income'){
+
+        const amount = parseFloat(document.getElementById("income-amount-input").value);
+        const currency = document.getElementById("income-currency-select").value;
+        const period = document.getElementById("income-type-select").value;
+        const icon = document.getElementById("incomeIconInput").value;
+        const title = document.querySelector('input[title="title-income-input"]').value;
+
+        const newItem = {
+            title,
+            amount,
+            currency,
+            period,
+            icon
+        };
+
+        account.incomes.push(newItem);
+        toggleModal('income',false)
+
+        console.log(newItem)
+        console.log(account)
+    }else if(modalId === 'expense'){
+
+        const amount = parseFloat(document.getElementById("expense-amount-input").value);
+        const currency = document.getElementById("expense-currency-select").value;
+        const period = document.getElementById("expense-type-select").value;
+        const icon = document.getElementById("expenseIconInput").value;
+        const title = document.querySelector('input[title="title-expense-input"]').value;
+
+        const newItem = {
+            title,
+            amount,
+            currency,
+            period,
+            icon
+        };
+
+        account.expenses.push(newItem);
+        toggleModal('expense',false)
+
+        console.log(newItem)
+        console.log(account)
+
+    }
 
 
-
-
-    const newItem = {
-        title,
-        amount,
-        currency,
-        period,
-        icon
-    };
-
-    account.incomes.push(newItem);
-    toggleModal('income',false)
-
-
-
-
-    console.log(newItem)
-    console.log(account)
 
 
 }
