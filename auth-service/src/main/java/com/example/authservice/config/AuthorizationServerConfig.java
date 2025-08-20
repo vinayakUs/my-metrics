@@ -80,7 +80,7 @@ public class AuthorizationServerConfig {
                                 new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
                         )
                 );
-        return http.csrf(csrf -> csrf.disable()).build();
+        return http.build();
     }
 
     @Bean
@@ -98,7 +98,8 @@ public class AuthorizationServerConfig {
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .authenticationProvider(daoAuthenticationProvider);
-        return http.csrf(csrf -> csrf.disable()).build();
+//        return http.csrf(csrf -> csrf.disable()).build();
+        return http.build();
     }
 
     @Bean

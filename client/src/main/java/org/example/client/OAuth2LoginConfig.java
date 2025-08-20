@@ -2,6 +2,7 @@ package org.example.client;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
@@ -20,7 +21,7 @@ public class OAuth2LoginConfig {
                 .oauth2Login(
                         oauth2Login -> oauth2Login.loginPage("/login")
                 )
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(Customizer.withDefaults())
                 .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/login").invalidateHttpSession(true).clearAuthentication(true).deleteCookies("JSESSIONID"))
                 .oauth2Client(withDefaults());
         return http.build();

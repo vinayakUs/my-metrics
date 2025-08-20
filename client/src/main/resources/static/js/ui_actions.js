@@ -3,6 +3,10 @@ if (!account.incomes) account.incomes = []; // Safety check
 if (!account.expenses) account.expenses = []; // Safety check
 
 
+const token = document.querySelector('meta[name="_csrf"]').content;
+const header = document.querySelector('meta[name="_csrf_header"]').content;
+
+
 
 function addItem(type){
     const modalId = type === 'income' ? 'income':'expense';
@@ -138,14 +142,36 @@ $(document).ready(function () {
     });
 
     function saveData() {
-        fetch('/account', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(account)
+
+
+        $.ajax({
+            url: `/account`,
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(account),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            success: function(response) {
+                console.log("Success:", response);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", error);
+            }
         })
-            .then(response => response)
-            .then(data => console.log("Saved successfully:", data))
-            .catch(err => console.error("Save failed:", err));
+
+
+        // fetch('/account', {
+        //     method: 'POST',
+        //     headers: { 'Content-Type': 'application/json' },
+        //     body: JSON.stringify(account)
+        // })
+        //     .then(response => response)
+        //     .then(data => console.log("Saved successfully:", data))
+        //     .catch(err => console.error("Save failed:", err));
+
+
+
     }
     function startOAuthFlow(clientId) {
         const authWindow = window.open(`/oauth2/authorization/${clientId}`, 'oauth2Login', 'width=100vh,height=100vh');
