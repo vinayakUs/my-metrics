@@ -297,3 +297,74 @@ body {
     display: none;                  /* Chrome, Safari */
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.income-item {
+    position: relative;
+    overflow: hidden;
+    touch-action: pan-y; /* keep vertical scroll smooth */
+    background: var(--bs-body-bg);
+}
+
+/* sliding body */
+.income-body {
+    transition: transform 0.25s ease;
+    will-change: transform;
+}
+
+/* actions area (offscreen by default) */
+.income-actions {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(140px, -50%); /* hide to the right */
+    transition: transform 0.25s ease;
+    pointer-events: none; /* ignore clicks until revealed */
+}
+
+/* revealed state */
+.income-item.revealed .income-body {
+    transform: translateX(-140px);
+}
+
+.income-item.revealed .income-actions {
+    transform: translate(0, -50%);
+    pointer-events: auto;
+}
+
+/* desktop hover fallback (optional) */
+@media (hover: hover) and (pointer: fine) {
+    .income-item:hover .income-body { transform: translateX(-80px); }
+    .income-item:hover .income-actions { transform: translate(0, -50%); pointer-events: auto; }
+}
+

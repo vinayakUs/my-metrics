@@ -186,3 +186,184 @@ $(document).ready(function () {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function () {
+    const items = Array.from(document.querySelectorAll('.income-item'));
+    let openItem = null;
+
+    function closeOpen() {
+        if (openItem) openItem.classList.remove('revealed');
+        openItem = null;
+    }
+
+    items.forEach(item => {
+        let startX = 0;
+        let currentX = 0;
+        let dragging = false;
+
+        const body = item.querySelector('.income-body');
+
+        // ----- Touch -----
+        item.addEventListener('touchstart', (e) => {
+            closeOpen();
+            startX = e.touches[0].clientX;
+            currentX = startX;
+            dragging = true;
+        }, {passive: true});
+
+        item.addEventListener('touchmove', (e) => {
+            if (!dragging) return;
+            currentX = e.touches[0].clientX;
+            const dx = currentX - startX;
+            if (dx < 0) { // moving left
+                body.style.transform = `translateX(${Math.max(dx, -140)}px)`;
+            }
+        }, {passive: true});
+
+        item.addEventListener('touchend', () => {
+            dragging = false;
+            const dx = currentX - startX;
+            body.style.transform = '';
+            if (dx < -60) {
+                item.classList.add('revealed');
+                openItem = item;
+            } else {
+                item.classList.remove('revealed');
+            }
+        });
+
+        // ----- Mouse (desktop drag) -----
+        item.addEventListener('mousedown', (e) => {
+            if (e.button !== 0) return;
+            closeOpen();
+            startX = e.clientX;
+            currentX = startX;
+            dragging = true;
+            item.classList.add('dragging');
+            e.preventDefault();
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!dragging) return;
+            currentX = e.clientX;
+            const dx = currentX - startX;
+            if (dx < 0) {
+                body.style.transform = `translateX(${Math.max(dx, -140)}px)`;
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            if (!dragging) return;
+            dragging = false;
+            const dx = currentX - startX;
+            body.style.transform = '';
+            item.classList.remove('dragging');
+            if (dx < -60) {
+                item.classList.add('revealed');
+                openItem = item;
+            } else {
+                item.classList.remove('revealed');
+            }
+        });
+
+        // ----- Keyboard accessibility -----
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                item.classList.add('revealed');
+                openItem = item;
+            }
+            if (e.key === 'ArrowRight' || e.key === 'Escape') {
+                item.classList.remove('revealed');
+                if (openItem === item) openItem = null;
+            }
+        });
+    });
+
+    // Close when clicking elsewhere
+    document.addEventListener('click', (e) => {
+        const isItem = e.target.closest('.income-item');
+        if (!isItem) closeOpen();
+    });
+})();
