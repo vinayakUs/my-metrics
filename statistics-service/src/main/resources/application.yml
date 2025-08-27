@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: statistics-service
+
+
+app:
+  properties:
+    api:
+      exchangeClient:
+        hostname: https://api.exchangeratesapi.io/v1/
+        api: 104d29f18182c45565d04bb9f9f145a8
+
