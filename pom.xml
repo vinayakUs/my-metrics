@@ -41,10 +41,6 @@
     <module>auth-service</module>
     <module>client</module>
     <module>statistics-service</module>
-
-
-
-
   </modules>
 
 </project>

@@ -4,21 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/controller/StatisticsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Currency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Saving.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/TimePeriod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/DataPointId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/ItemMetric.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/service/StatisticsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="added config conf">
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClientT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/config/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/ExchangeRatesResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/DataPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/StatisticMetric.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/DataPointRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/converter/DataPointIdReadConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/converter/DataPointWriteConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/test/java/com/example/statisticsservice/client/ExchangeRateClientFallbackTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/controller/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/controller/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Currency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/service/StatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/service/StatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,14 +36,16 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -50,12 +56,12 @@
     &quot;assignee&quot;: &quot;vinayakUs&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/vinayakUs/my-metrics.git",
-    "accountId": "dda47a02-b0f7-4d86-bf24-87313a1e1155"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vinayakUs/my-metrics.git&quot;,
+    &quot;accountId&quot;: &quot;dda47a02-b0f7-4d86-bf24-87313a1e1155&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -71,53 +77,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.mongodb/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.account-service [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.auth-service [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.config [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.my-metrics [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.my-metrics [install].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Notification.DisplayName-DoNotAsk-Database detector&quot;: &quot;Database detector&quot;,
-    &quot;Notification.DoNotAsk-Database detector&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.ConfigApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;f2__ui__auth&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/v2/my-metrics&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
+    "Docker.mongodb/Dockerfile.executor": "Run",
+    "JUnit.ExchangeRateClientFallbackTest.executor": "Run",
+    "JUnit.ExchangeRateClientFallbackTest.testFallbackOn401.executor": "Debug",
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.account-service [clean].executor": "Run",
+    "Maven.account-service [compile].executor": "Run",
+    "Maven.account-service [install].executor": "Run",
+    "Maven.auth-service [clean].executor": "Run",
+    "Maven.config [install].executor": "Run",
+    "Maven.my-metrics [clean].executor": "Run",
+    "Maven.my-metrics [install].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Notification.DisplayName-DoNotAsk-Database detector": "Database detector",
+    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "New/updated database configurations found",
+    "Notification.DoNotAsk-Database detector": "true",
+    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.AccountServiceApplication.executor": "Run",
+    "Spring Boot.AuthServiceApplication.executor": "Run",
+    "Spring Boot.ClientApplication.executor": "Run",
+    "Spring Boot.ConfigApplication.executor": "Run",
+    "Spring Boot.EurekaApplication.executor": "Run",
+    "Spring Boot.StatisticsServiceApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "f2__ui__auth",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/My Drive/my-metrics",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
+    "service.view.auto.scroll.to.source": "true",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -133,6 +149,12 @@
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics\config\src\main\java\org\example\config" />
       <recent name="C:\Users\vinayak\Desktop\n\my-metrics" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.statisticsservice.client" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -143,8 +165,34 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="StatisticsServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="JUnit.ExchangeRateClientFallbackTest">
+    <configuration name="ExchangeRateClientFallbackTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="statistics-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.statisticsservice.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.statisticsservice.client" />
+      <option name="MAIN_CLASS_NAME" value="com.example.statisticsservice.client.ExchangeRateClientFallbackTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.accountservice.AccountServiceApplication" />
@@ -266,8 +314,9 @@
     <list>
       <item itemvalue="Docker.mongodb/Dockerfile" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
+      <item itemvalue="JUnit.ExchangeRateClientFallbackTest" />
       <item itemvalue="Spring Boot.ClientApplication" />
+      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
       <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
@@ -275,6 +324,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExchangeRateClientFallbackTest" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.mongodb/Dockerfile" />
       </list>
@@ -327,6 +377,12 @@
       <workItem from="1755277080129" duration="9332000" />
       <workItem from="1755353065906" duration="2485000" />
       <workItem from="1756314987260" duration="5670000" />
+      <workItem from="1756474490644" duration="1951000" />
+      <workItem from="1756555696616" duration="14563000" />
+      <workItem from="1756640658775" duration="7429000" />
+      <workItem from="1756731565220" duration="449000" />
+      <workItem from="1756732033563" duration="8698000" />
+      <workItem from="1756879507951" duration="5483000" />
     </task>
     <task id="LOCAL-00001" summary="account service dto">
       <option name="closed" value="true" />
@@ -425,24 +481,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>90</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClient.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

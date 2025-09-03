@@ -24,13 +24,12 @@ import java.util.Optional;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
-	
-	@Autowired
-	private AccountRepository repo;
 
-	@Autowired
-	private AuthServiceClient authClient;
+	private final AccountRepository repo;
+
+	private final AuthServiceClient authClient;
 
 	/**
 	 * {@inheritDoc}
@@ -68,13 +67,14 @@ public class AccountServiceImpl implements AccountService {
 		saving.setCapitalization(false);
 
 		Account account = new Account();
+
 		account.setUsername(user.getUsername());
 		account.setLastSeen(new Date());
 		account.setSaving(saving);
 
 		repo.save(account);
 
-		log.info("Account created: " + account.getUsername());
+        log.info("Account created: {}", account.getUsername());
 
 		return account;
 	}
