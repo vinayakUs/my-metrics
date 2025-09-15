@@ -1,13 +1,7 @@
 spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:9000/oauth2/jwks
-
-
   application:
     name: statistics-service
+
   config:
     import: optional:configserver:http://localhost:8888
   cloud:
@@ -22,6 +16,7 @@ spring:
       username: user
       password: password
       database: metrics
+
 eureka:
   instance:
     prefer-ip-address: true
@@ -33,32 +28,27 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka
-app:
-  properties:
-    webclient:
-      exchangeClient:
-        hostname: 'https://api.exchangeratesapi.io/v1/'
-        api: '104d29f18182c45565d04bb9f9f145a8s'
-server:
-  port: 8084
-  address: localhost
-logging:
-  level:
-    reactor:
-      netty:
-        http:
-          client: error
 
 
 
-resilience4j:
-  circuitbreaker:
-    instances:
-      exchangeRateService:
-        register-health-indicator: true
-        sliding-window-size: 2
-        minimum-number-of-calls: 2
-        failure-rate-threshold: 50
-        wait-duration-in-open-state: 10s
-        permitted-number-of-calls-in-half-open-state: 1
-        automatic-transition-from-open-to-half-open-enabled: true
+
+
+
+
+management:
+  endpoints.web.exposure.include:
+    - '*'
+  endpoint.health.show-details: always
+  health.circuitbreakers.enabled: true
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      registerHealthIndicator: true
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      waitDurationInOpenState: 5s
+      failureRateThreshold: 50
+      eventConsumerBufferSize: 10
+

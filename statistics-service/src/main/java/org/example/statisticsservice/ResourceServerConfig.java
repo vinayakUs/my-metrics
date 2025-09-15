@@ -1,4 +1,4 @@
-package com.example.statisticsservice.config;
+package org.example.statisticsservice;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +16,11 @@ public class ResourceServerConfig {
 
         http.
                 authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/public/**").permitAll() // allow public access
+                        .requestMatchers("/public/**","/actuator/**","/test/**").permitAll() // allow public access
                         .anyRequest().authenticated()              // secure all other endpoints
                 )
                 .oauth2ResourceServer(oauth2ResourceServer ->
-                        oauth2ResourceServer.jwt(Customizer.withDefaults())
+                        oauth2ResourceServer.jwt(   Customizer.withDefaults())
                 );
         return http.build();
 
