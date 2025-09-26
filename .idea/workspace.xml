@@ -4,36 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="device bkp [lp]">
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/exceptions/ServiceUnavailable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongodb/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/mongodb/init.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/StatisticsServiceApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/client/ExchangeRateClientT.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/config/ResourceServerConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/controller/StatisticsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Account.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Currency.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/ExchangeRatesResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/Saving.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/TimePeriod.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/DataPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/DataPointId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/ItemMetric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/domain/timeseries/StatisticMetric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/DataPointRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/converter/DataPointIdReadConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/repository/converter/DataPointWriteConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/com/example/statisticsservice/service/StatisticsService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/test/java/com/example/statisticsservice/StatisticsServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/statistics-service/src/test/java/com/example/statisticsservice/client/ExchangeRateClientFallbackTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/AuthServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/AuthServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,30 +54,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.EurekaApplication.executor": "Run",
-    "Spring Boot.StatisticsServiceApplication.executor": "Run",
-    "git-widget-placeholder": "f2__ui__auth",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.StatisticsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;f2__ui__auth&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -110,9 +99,21 @@
     </option>
     <option name="configurationStatuses">
       <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="generated-requests | #2" value="STOPPED" />
+              <entry key="generated-requests | #3" value="STOPPED" />
+              <entry key="generated-requests | #4" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
         <entry key="SpringBootApplicationConfigurationType">
           <value>
             <map>
+              <entry key="AccountServiceApplication" value="STOPPED" />
+              <entry key="AuthServiceApplication" value="STOPPED" />
+              <entry key="ClientApplication" value="STOPPED" />
               <entry key="EurekaApplication" value="STOPPED" />
               <entry key="StatisticsServiceApplication" value="STOPPED" />
             </map>
@@ -121,7 +122,16 @@
       </map>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="HTTP Request.generated-requests | #4">
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#3" index="3" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#4" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="account-service" />
@@ -180,6 +190,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="HTTP Request.generated-requests | #4" />
+        <item itemvalue="HTTP Request.generated-requests | #3" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -201,10 +214,108 @@
       <updated>1757339216436</updated>
       <workItem from="1757339218312" duration="2218000" />
       <workItem from="1757496952524" duration="47000" />
+      <workItem from="1757947332806" duration="2889000" />
+      <workItem from="1758106410011" duration="17478000" />
+      <workItem from="1758893285165" duration="1121000" />
     </task>
+    <task id="LOCAL-00001" summary="device bkp [lp]">
+      <option name="closed" value="true" />
+      <created>1757947424792</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1757947424792</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="device bkp [lp]" />
+    <option name="LAST_COMMIT_MESSAGE" value="device bkp [lp]" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/AuthServiceClient.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

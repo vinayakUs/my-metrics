@@ -17,6 +17,8 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +35,12 @@ import org.springframework.security.oauth2.server.authorization.settings.Authori
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.util.AntPathMatcher;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -83,6 +90,31 @@ public class AuthorizationServerConfig {
         return http.build();
     }
 
+
+    /**
+     * Stateless API chain for internal service-to-service endpoints.
+     * Matches /internal/** and expects Bearer tokens (JWT).
+     * CSRF disabled here and session creation policy set to STATELESS to avoid jsessionid rewrite.
+     */
+    @Bean
+    @Order(2)
+    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
+        // This chain applies to /internal/** and is stateless (no session)
+        http.securityMatcher("/api/internal/**")
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        // allow unauthenticated access to this endpoint for now
+                        .requestMatchers(HttpMethod.POST, "/api/internal/users").permitAll()
+                        // protect other internal endpoints
+                        .requestMatchers("/internal/**").permitAll()
+                        .anyRequest().authenticated()
+                );
+
+        return http.build();
+    }
+
+
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http, UserDetailsService userDetailsService,
                                                           PasswordEncoder passwordEncoder
@@ -98,8 +130,8 @@ public class AuthorizationServerConfig {
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .authenticationProvider(daoAuthenticationProvider);
-//        return http.csrf(csrf -> csrf.disable()).build();
-        return http.build();
+        return http.csrf(csrf -> csrf.disable()).build();
+//        return http.build();
     }
 
     @Bean
