@@ -2,6 +2,8 @@ package org.example.accountservice.domain;
 
 import java.math.BigDecimal;
 
+import org.bson.codecs.pojo.annotations.BsonId;
+import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.validation.constraints.NotNull;
