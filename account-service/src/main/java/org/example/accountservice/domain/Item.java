@@ -8,6 +8,9 @@ import jakarta.validation.constraints.NotNull;
 
 public class Item {
 
+    @BsonId
+    private ObjectId id =  new ObjectId();
+
 	@NotNull
 	@Length(min = 1, max = 20)
 	private String title;
