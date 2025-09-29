@@ -19,7 +19,7 @@ public class UserController {
     @PostMapping("/users")
     public ResponseEntity<Void> createUser(@RequestBody @Validated User user){
         userService.create(user);
-        return new ResponseEntity(null,HttpStatus.INTERNAL_SERVER_ERROR);
+        return ResponseEntity.ok().build();
     }
 
 
