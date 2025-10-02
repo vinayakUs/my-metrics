@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="device bkp [lp]">
+    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="fixed something">
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/controller/StatisticsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/Currency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/Saving.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/TimePeriod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/timepoint/DataPointId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/domain/timepoint/ItemMetric.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/RateService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/StatisticsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistics-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/ResourceServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" afterDir="false" />
@@ -25,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="f2_ui_auth" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -52,45 +65,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe",
-    "Spring Boot.AccountServiceApplication.executor": "Run",
-    "Spring Boot.AuthServiceApplication.executor": "Run",
-    "Spring Boot.ClientApplication.executor": "Run",
-    "Spring Boot.EurekaApplication.executor": "Run",
-    "Spring Boot.StatisticsServiceApplication.executor": "Run",
-    "git-widget-placeholder": "f2__ui__auth",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.StatisticsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;f2__ui__auth&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vinayak/IdeaProjects/my-metrics/statistics-service/src/main/java/org/example/statisticsservice/domain&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vinayak\IdeaProjects\my-metrics\statistics-service\src\main\java\org\example\statisticsservice\domain" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.statisticsservice.domain" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -199,16 +221,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="HTTP Request.generated-requests | #2" />
       <item itemvalue="HTTP Request.generated-requests | #3" />
       <item itemvalue="HTTP Request.generated-requests | #4" />
-      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
+      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.ClientApplication" />
-      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
     </list>
     <recent_temporary>
       <list>
@@ -239,7 +261,10 @@
       <workItem from="1757947332806" duration="2889000" />
       <workItem from="1758106410011" duration="17478000" />
       <workItem from="1758893285165" duration="1121000" />
-      <workItem from="1759162175563" duration="7832000" />
+      <workItem from="1759162175563" duration="8534000" />
+      <workItem from="1759257160478" duration="444000" />
+      <workItem from="1759395978778" duration="10982000" />
+      <workItem from="1759428699302" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="device bkp [lp]">
       <option name="closed" value="true" />
@@ -249,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757947424792</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixed something">
+      <option name="closed" value="true" />
+      <created>1759173836358</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759173836358</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +301,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="device bkp [lp]" />
-    <option name="LAST_COMMIT_MESSAGE" value="device bkp [lp]" />
+    <MESSAGE value="fixed something" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed something" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -317,11 +351,6 @@
           <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
           <line>33</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/AuthServiceClient.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
