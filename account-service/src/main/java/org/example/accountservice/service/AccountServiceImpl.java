@@ -1,6 +1,7 @@
 package org.example.accountservice.service;
 
 import org.example.accountservice.client.AuthServiceClient;
+import org.example.accountservice.client.StatisticsServiceClient;
 import org.example.accountservice.domain.Account;
 import org.example.accountservice.domain.Currency;
 import org.example.accountservice.domain.Saving;
@@ -32,6 +33,8 @@ public class AccountServiceImpl implements AccountService {
 	private final AccountRepository repo;
 
 	private final AuthServiceClient authClient;
+
+    private final StatisticsServiceClient statisticsClient;
 
 	/**
 	 * {@inheritDoc}
@@ -113,6 +116,10 @@ public class AccountServiceImpl implements AccountService {
 			existing.setIncomes(account.getIncomes());
 			existing.setExpenses(account.getExpenses());
 			repo.save(existing);
+
+            statisticsClient.postStatistic(existing).block();
+
+
 			return existing;
 		}
 		throw new ResourceNotFound("No user Details exist for username: " + userName);

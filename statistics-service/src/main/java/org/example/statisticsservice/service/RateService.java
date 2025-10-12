@@ -19,4 +19,8 @@ public class RateService {
         return amount.multiply(new BigDecimal(1));
     }
 
+    public Map<Currency, BigDecimal> getCurrentRates(){
+        return Map.of(Currency.USD, new BigDecimal(1),Currency.RUB, new BigDecimal(1) ,Currency.EUR, new BigDecimal(1)  );
+    }
+
 }

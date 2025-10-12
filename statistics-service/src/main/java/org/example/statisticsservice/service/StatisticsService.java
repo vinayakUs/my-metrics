@@ -4,8 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.example.statisticsservice.domain.Account;
 import org.example.statisticsservice.domain.Currency;
 import org.example.statisticsservice.domain.Item;
+import org.example.statisticsservice.domain.Saving;
+import org.example.statisticsservice.domain.timepoint.DataPoint;
 import org.example.statisticsservice.domain.timepoint.DataPointId;
 import org.example.statisticsservice.domain.timepoint.ItemMetric;
+import org.example.statisticsservice.domain.timepoint.StatisticMetric;
+import org.example.statisticsservice.repository.DataPointRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -13,6 +17,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -21,7 +26,9 @@ import java.util.stream.Collectors;
 public class StatisticsService {
     private final RateService rateService;
 
-    public void save(Account account , String accountName) {
+    private final DataPointRepository dataPointRepository;
+
+    public DataPoint save(Account account , String accountName) {
 
         Instant now = LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
         DataPointId dataPointId = new DataPointId(accountName , Date.from(now));
@@ -32,7 +39,36 @@ public class StatisticsService {
                 .map(this::createMetricItem)
                 .collect(Collectors.toSet());
 
-//        Set<ItemMetric> income =account.getIncomes().stream().map(x->rateService.convert(x.getCurrency() , Currency.getDefault(),x.getAmount())).collect(Collectors.toSet());
+        Map<StatisticMetric , BigDecimal> statistic = createStatisticMetrics(incomes , expenses , account.getSaving());
+        System.out.println(statistic);
+
+        DataPoint dataPoint = new DataPoint();
+        dataPoint.setId(dataPointId);
+        dataPoint.setIncomes(incomes);
+        dataPoint.setExpenses(expenses);
+        dataPoint.setStatistics(statistic);
+        dataPoint.setRates(rateService.getCurrentRates());
+
+        return dataPointRepository.save(dataPoint);
+
+    }
+
+    private Map<StatisticMetric, BigDecimal> createStatisticMetrics(Set<ItemMetric> incomes, Set<ItemMetric> expenses, Saving saving) {
+
+        BigDecimal savingAmount = rateService.convert(saving.getCurrency() , Currency.getDefault(),saving.getAmount());
+
+        BigDecimal expenseAmount =  expenses.stream().map(x -> x.getAmount()).reduce(BigDecimal.ZERO , (a,b)->a.add(b));
+
+        BigDecimal incomeAmount = incomes.stream().map(x->x.getAmount()).reduce(BigDecimal.ZERO , (a,b)->a.add(b));
+
+
+        return Map.of(
+                StatisticMetric.INCOMES_AMOUNT , incomeAmount ,
+                StatisticMetric.EXPENSES_AMOUNT , expenseAmount,
+                StatisticMetric.SAVING_AMOUNT , savingAmount
+        );
+
+
 
     }
 

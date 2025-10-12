@@ -136,8 +136,9 @@ public class AuthorizationServerConfig {
 
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
+
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("messaging-client")  //Client Id
+                .clientId("backend-client")  //Client Id
                 .clientSecret("$2a$12$n5DZ70NjhfB545CdurJpEeFcxnRmB1xBgh6ErpdHK6dTDUcpQYz12")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
@@ -156,7 +157,19 @@ public class AuthorizationServerConfig {
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
 
-        return new InMemoryRegisteredClientRepository(registeredClient);
+
+        RegisteredClient tokenExchangeClient = RegisteredClient.withId(UUID.randomUUID().toString())
+                .clientId("token-client")
+                .clientSecret("$2a$12$nC5c2Vzc5xDTu/x0.vCHxep3XvSVIlCoU1al/YudoDtYkdGo.ySpO")
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
+                .scope("message.read")
+                .scope("message.write")
+                .build();
+
+
+
+        return new InMemoryRegisteredClientRepository(registeredClient,tokenExchangeClient);
     }
 
     @Bean

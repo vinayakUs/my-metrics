@@ -84,8 +84,10 @@ public class LoginController {
 
 
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println(e.getMessage());
+            model.addAttribute("status", 500);
+            model.addAttribute("message", e.getMessage());
+            return "500error";
         }
 
 

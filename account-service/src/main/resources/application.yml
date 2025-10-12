@@ -1,6 +1,20 @@
 spring:
   security:
     oauth2:
+#      client:
+#        registration:
+#          stat-service-exchange:
+#            provider: spring
+#            client-name:
+#            client-id:
+#            scope:
+#              - stat.update
+#        provider:
+#          spring:
+#            issuer-uri: http://localhost:9000
+
+
+
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:9000/oauth2/jwks
