@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientProvider;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientProviderBuilder;
+import org.springframework.security.oauth2.client.TokenExchangeOAuth2AuthorizedClientProvider;
 import org.springframework.security.oauth2.client.registration.ClientRegistrationRepository;
 import org.springframework.security.oauth2.client.web.DefaultOAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.client.web.OAuth2AuthorizedClientRepository;
@@ -26,6 +27,11 @@ public class WebClientConfig {
                 .apply(oauth2Client.oauth2Configuration())
 
        ;
+    }
+
+    @Bean
+    public OAuth2AuthorizedClientProvider tokenExchange() {
+        return new TokenExchangeOAuth2AuthorizedClientProvider();
     }
 
 

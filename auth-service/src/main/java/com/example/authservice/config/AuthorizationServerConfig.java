@@ -147,6 +147,7 @@ public class AuthorizationServerConfig {
                 .redirectUri("http://127.0.0.1:8080/login/oauth2/code/messaging-client-oidc")
                 .redirectUri("http://127.0.0.1:8080/authorized")
                 .redirectUri("http://127.0.0.1:8080/post-connect")
+                .redirectUri("http://127.0.0.1:9000/login/oauth2/code/backend-client")
                 .postLogoutRedirectUri("http://127.0.0.1:8080/logged-out")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
@@ -157,19 +158,20 @@ public class AuthorizationServerConfig {
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
 
-
-        RegisteredClient tokenExchangeClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("token-client")
-                .clientSecret("$2a$12$nC5c2Vzc5xDTu/x0.vCHxep3XvSVIlCoU1al/YudoDtYkdGo.ySpO")
+        RegisteredClient accountService = RegisteredClient.withId(UUID.randomUUID().toString())
+                .clientId("account-servicex")
+                .clientSecret("$2a$12$ex9E7l70fUByOs75rCcV8.GEBhxIWrpNJtjfdM.w2pt6Q0bgteR8q")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+//                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .scope("message.read")   // ✅ allowed scope(s)
+                .scope("message.write")  // optional
                 .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
-                .scope("message.read")
-                .scope("message.write")
+                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(false).build())
                 .build();
 
+//http://localhost:9000/oauth2/authorize?response_type=code&client_id=backend-client&scope=user.read&redirect_uri=http://127.0.0.1:9000/login/oauth2/code/backend-client
 
-
-        return new InMemoryRegisteredClientRepository(registeredClient,tokenExchangeClient);
+        return new InMemoryRegisteredClientRepository(registeredClient,accountService);
     }
 
     @Bean
