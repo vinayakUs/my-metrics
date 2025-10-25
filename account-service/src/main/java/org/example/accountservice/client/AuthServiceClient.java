@@ -3,6 +3,7 @@ package org.example.accountservice.client;
 import org.example.accountservice.domain.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -18,20 +19,20 @@ public class AuthServiceClient {
     public AuthServiceClient(WebClient.Builder clientBuilder) {
         this.webClient  = clientBuilder
                 .baseUrl("http://localhost:9000") // ✅ explicitly set the correct port
-                .defaultHeaders(headers -> headers.setBasicAuth("user", "abc"))
+//                .defaultHeaders(headers -> headers.setBasicAuth("user", "abc"))
                 .build();
 //        this.webClient = clientBuilder.baseUrl(authServiceHost)
 //                .defaultHeaders(headers -> headers.setBasicAuth("user", "abc"))
 //                .build();
     }
 
-    public Mono<Void> createUser(User user) {
-       return webClient.post().uri("/users")
+    public Mono<ResponseEntity<Void>> createUser(User user) {
+       return webClient.post().uri("/api/internal/users")
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue(user)
                 .retrieve()
                 .toBodilessEntity()
-                .then();
+               .doOnNext(res->System.out.println("createUser in Auth Service: " + res.getStatusCode() ));
     }
 
 }

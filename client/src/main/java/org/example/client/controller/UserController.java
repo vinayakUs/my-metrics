@@ -47,53 +47,45 @@ public class UserController {
     private OAuth2AuthorizedClientService clientService;
     @Autowired
     private OAuth2AuthorizedClientManager clientManager;
+    @Autowired
+    private OAuth2AuthorizedClientService authorizedClientService;
 
 
-    @PutMapping("/account")
+    @PostMapping("/account")
     @ResponseBody
-    public ResponseEntity<String> updateAccount(@RequestBody Account account, OAuth2AuthenticationToken token) {
+    public ResponseEntity<String> updateAccount(@RequestBody Account account,Authentication authentication) {
+        String clientId = "downstream-client"; // from your yml config
+
+        OAuth2AuthorizedClient client =
+                authorizedClientService.loadAuthorizedClient(clientId, authentication.getName());
         System.out.println("update account value is " + account);
-        System.out.println("Token Client Reg ID: " + token.getAuthorizedClientRegistrationId());
+        System.out.println("client" + client.getAccessToken().getTokenValue());
 
-        OAuth2AuthorizeRequest request = OAuth2AuthorizeRequest
-                .withClientRegistrationId(token.getAuthorizedClientRegistrationId())
-                .principal(token)
-                .build();
 
-        OAuth2AuthorizedClient client = clientManager.authorize(request);
-        if (client == null) {
-            throw new IllegalStateException("Unable to authorize client");
+        OAuth2AccessToken clientAccessToken = client.getAccessToken();
+
+        try {
+            Account updatedAccount = this.webClient.build().put()
+                    .uri("http://ACCOUNT-SERVICE/accounts/user")
+                    .bodyValue(account)
+                    .attributes(
+                            ServletOAuth2AuthorizedClientExchangeFilterFunction
+                            .clientRegistrationId("downstream-client")
+                    )
+                    .retrieve()
+                    .bodyToMono(Account.class)
+                    .block();
+
+            System.out.println("updated account value is " + updatedAccount);
+
+        } catch (Exception e) {
+            System.out.println("exception message: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Failed to update account");
         }
 
-        String tokenValue = client.getAccessToken().getTokenValue();
-        System.out.println(tokenValue);
-
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        if (authentication instanceof OAuth2AuthenticationToken token) {
-//            OAuth2User user = token.getPrincipal();
-//            System.out.println(user.toString());
-//            String email = user.getAttribute("email");
-//            System.out.println(email);
-//        }
 
 
-//        try {
-//            Account updatedAccount = this.webClient.build().put()
-//                    .uri("http://ACCOUNT-SERVICE/accounts/user")
-//                    .bodyValue(account)
-//                    .attributes(ServletOAuth2AuthorizedClientExchangeFilterFunction
-//                            .clientRegistrationId("messaging-client-oidc"))
-//                    .retrieve()
-//                    .bodyToMono(Account.class)
-//                    .block();
-//
-//            System.out.println("updated account value is " + updatedAccount);
-//
-//        } catch (Exception e) {
-//            System.out.println("exception message: " + e.getMessage());
-//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                    .body("Failed to update account");
-//        }
 
         return ResponseEntity.ok("Done");
     }

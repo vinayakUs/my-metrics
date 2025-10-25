@@ -1,15 +1,18 @@
 package org.example.accountservice.service;
 
 import org.example.accountservice.client.AuthServiceClient;
+import org.example.accountservice.client.StatisticsServiceClient;
 import org.example.accountservice.domain.Account;
 import org.example.accountservice.domain.Currency;
 import org.example.accountservice.domain.Saving;
 import org.example.accountservice.domain.User;
 import org.example.accountservice.exceptions.ResourceAlreadyExist;
 import org.example.accountservice.exceptions.ResourceNotFound;
+import org.example.accountservice.exceptions.ServiceUnavailable;
 import org.example.accountservice.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
@@ -24,13 +27,13 @@ import java.util.Optional;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class AccountServiceImpl implements AccountService {
-	
-	@Autowired
-	private AccountRepository repo;
 
-	@Autowired
-	private AuthServiceClient authClient;
+	private final AccountRepository repo;
+
+	private final AuthServiceClient authClient;
+
 
 	/**
 	 * {@inheritDoc}
@@ -57,26 +60,45 @@ public class AccountServiceImpl implements AccountService {
 			throw new ResourceAlreadyExist( "Account already exists username: " + user.getUsername());
 		}
 
+		ResponseEntity<Void> responseEntity ;
 
-		authClient.createUser(user).block();
+        try{
+            responseEntity =  authClient.createUser(user).block();
+        }catch (Exception e){
+            log.error("Failed to call Auth service for user creation: {}", e.getMessage(), e);
+            throw new ServiceUnavailable("Failed to call Auth service for user creation: " + e.getMessage());
+        }
+        if (responseEntity == null) {
+            log.error("Auth service returned null response for create user");
+            throw new RuntimeException("Auth service returned empty response");
+        }
 
-		Saving saving = new Saving();
-		saving.setAmount(new BigDecimal(0));
-		saving.setCurrency(Currency.getDefault());
-		saving.setInterest(new BigDecimal(0));
-		saving.setDeposit(false);
-		saving.setCapitalization(false);
 
-		Account account = new Account();
-		account.setUsername(user.getUsername());
-		account.setLastSeen(new Date());
-		account.setSaving(saving);
+        if (responseEntity.getStatusCode().is2xxSuccessful()) {
+            Saving saving = new Saving();
+            saving.setAmount(new BigDecimal(0));
+            saving.setCurrency(Currency.getDefault());
+            saving.setInterest(new BigDecimal(0));
+            saving.setDeposit(false);
+            saving.setCapitalization(false);
 
-		repo.save(account);
+            Account account = new Account();
 
-		log.info("Account created: " + account.getUsername());
+            account.setUsername(user.getUsername());
+            account.setLastSeen(new Date());
+            account.setSaving(saving);
 
-		return account;
+            repo.save(account);
+
+            log.info("Account created: {}", account.getUsername());
+
+            return account;
+        } else if (responseEntity.getStatusCode().value() == 409) {
+            throw new ResourceAlreadyExist("Auth service reports user already exists: " + user.getUsername());
+        } else {
+            throw new RuntimeException("Auth service returned: " + responseEntity.getStatusCode());
+        }
+
 	}
 
 	/**
@@ -93,6 +115,8 @@ public class AccountServiceImpl implements AccountService {
 			existing.setIncomes(account.getIncomes());
 			existing.setExpenses(account.getExpenses());
 			repo.save(existing);
+
+
 			return existing;
 		}
 		throw new ResourceNotFound("No user Details exist for username: " + userName);

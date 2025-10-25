@@ -17,13 +17,18 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
+import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
+import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
@@ -31,14 +36,23 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
+import org.springframework.security.web.util.matcher.AndRequestMatcher;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
+import org.springframework.util.AntPathMatcher;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer.authorizationServer;
@@ -80,8 +94,33 @@ public class AuthorizationServerConfig {
                                 new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
                         )
                 );
-        return http.csrf(csrf -> csrf.disable()).build();
+        return http.build();
     }
+
+
+    /**
+     * Stateless API chain for internal service-to-service endpoints.
+     * Matches /internal/** and expects Bearer tokens (JWT).
+     * CSRF disabled here and session creation policy set to STATELESS to avoid jsessionid rewrite.
+     */
+    @Bean
+    @Order(2)
+    public SecurityFilterChain apiSecurityFilterChain(HttpSecurity http) throws Exception {
+        // This chain applies to /internal/** and is stateless (no session)
+        http.securityMatcher("/api/internal/**")
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        // allow unauthenticated access to this endpoint for now
+                        .requestMatchers(HttpMethod.POST, "/api/internal/users").permitAll()
+                        // protect other internal endpoints
+                        .requestMatchers("/internal/**").permitAll()
+                        .anyRequest().authenticated()
+                );
+
+        return http.build();
+    }
+
 
     @Bean
     public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http, UserDetailsService userDetailsService,
@@ -99,12 +138,14 @@ public class AuthorizationServerConfig {
                 .formLogin(Customizer.withDefaults())
                 .authenticationProvider(daoAuthenticationProvider);
         return http.csrf(csrf -> csrf.disable()).build();
+//        return http.build();
     }
 
     @Bean
     public RegisteredClientRepository registeredClientRepository() {
+
         RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("messaging-client")  //Client Id
+                .clientId("backend-client")  //Client Id
                 .clientSecret("$2a$12$n5DZ70NjhfB545CdurJpEeFcxnRmB1xBgh6ErpdHK6dTDUcpQYz12")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
@@ -112,6 +153,8 @@ public class AuthorizationServerConfig {
                 .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
                 .redirectUri("http://127.0.0.1:8080/login/oauth2/code/messaging-client-oidc")
                 .redirectUri("http://127.0.0.1:8080/authorized")
+                .redirectUri("http://127.0.0.1:8080/post-connect")
+                .redirectUri("http://127.0.0.1:9000/login/oauth2/code/backend-client")
                 .postLogoutRedirectUri("http://127.0.0.1:8080/logged-out")
                 .scope(OidcScopes.OPENID)
                 .scope(OidcScopes.PROFILE)
@@ -122,7 +165,23 @@ public class AuthorizationServerConfig {
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
                 .build();
 
-        return new InMemoryRegisteredClientRepository(registeredClient);
+        RegisteredClient accountService = RegisteredClient.withId(UUID.randomUUID().toString())
+                .clientId("account-service")
+                .clientSecret("$2a$12$6iTx73/UU1Vfn.LJcc4bN.MBuwVHj5ZMpfquofTbCHBlsgzf98L.G")
+                .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+                .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
+                .scope("message.read")   // ✅ allowed scope(s)
+                .scope("message.write")  // optional
+                .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
+                .clientSettings(ClientSettings.builder()
+                        .setting("audience", List.of("stats-service"))
+                        .requireAuthorizationConsent(false).build())
+                .build();
+
+//http://localhost:9000/oauth2/authorize?response_type=code&client_id=backend-client&scope=user.read&redirect_uri=http://127.0.0.1:9000/login/oauth2/code/backend-client
+
+        return new InMemoryRegisteredClientRepository(registeredClient,accountService);
     }
 
     @Bean
@@ -151,6 +210,25 @@ public class AuthorizationServerConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
+    }
+
+
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> jwtCustomizer() {
+        return context -> {
+            if (!OAuth2TokenType.ACCESS_TOKEN.equals(context.getTokenType())) {
+                return;
+            }
+
+            RegisteredClient client = context.getRegisteredClient();
+            Map<String, Object> clientSettings = client.getClientSettings().getSettings();
+
+            // 👇 Read audience from client metadata if present
+            Object audValue = clientSettings.get("audience");
+            if (audValue instanceof List<?> audList && !audList.isEmpty()) {
+                context.getClaims().claim("aud", audList);
+            }
+        };
     }
 
 

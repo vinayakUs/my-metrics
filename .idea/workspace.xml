@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/client/src/main/resources/templates/toast.html" afterDir="false" />
+    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="tokenexchange + webclient">
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/TokenExchangeConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/OAuth2LoginConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/StatisticsServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/StatisticsServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/TimePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/domain/TimePeriod.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/controller/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/controller/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/repository/DataPointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/repository/DataPointRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/StatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/StatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,15 +33,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="f2_ui_auth" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,79 +55,80 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/vinayakUs/my-metrics.git&quot;,
-    &quot;accountId&quot;: &quot;7e9d2c45-98cc-43fa-bc8f-19e1f0200676&quot;
+    &quot;accountId&quot;: &quot;dda47a02-b0f7-4d86-bf24-87313a1e1155&quot;
   }
+}</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
 }</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2yZZz22bc8XHo1Rif4lXICHL9IX" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="32Q3xNC9OntkRKwkgr7dyUwC4DI" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "Docker.mongodb/Dockerfile.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.account-service [clean].executor": "Run",
-    "Maven.account-service [compile].executor": "Run",
-    "Maven.account-service [install].executor": "Run",
-    "Maven.auth-service [clean].executor": "Run",
-    "Maven.config [install].executor": "Run",
-    "Maven.my-metrics [clean].executor": "Run",
-    "Maven.my-metrics [install].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.1\\plugins\\Shell Script\\shellcheck.exe",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.AccountServiceApplication.executor": "Run",
-    "Spring Boot.AuthServiceApplication.executor": "Run",
-    "Spring Boot.ClientApplication.executor": "Debug",
-    "Spring Boot.ConfigApplication.executor": "Run",
-    "Spring Boot.EurekaApplication.executor": "Run",
-    "git-widget-placeholder": "develop",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/my-metrics/client/src/main/java/org/example/client/domain",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.mongodb/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in StatisticsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.StatisticsServiceApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\vinayak\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;Spring Boot.AccountServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.AuthServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ClientApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.ConfigApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.EurekaApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.StatisticsServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;scopechange&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vinayak/IdeaProjects/my-metrics/statistics-service/src/main/java/org/example/statisticsservice/domain&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\my-metrics\client\src\main\java\org\example\client\domain" />
-      <recent name="D:\my-metrics\client\src\main\resources\static\images" />
+      <recent name="C:\Users\vinayak\IdeaProjects\my-metrics\statistics-service\src\main\java\org\example\statisticsservice\domain" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\my-metrics\client\src\main\resources\static\images" />
-      <recent name="D:\my-metrics\client\src\main\resources\static\img" />
-      <recent name="C:\Users\vinayak\Desktop\n\my-metrics\account-service\src\main\java\org\example\accountservice" />
-      <recent name="C:\Users\vinayak\Desktop\n\my-metrics\config\src\main\java\org\example\config" />
-      <recent name="C:\Users\vinayak\Desktop\n\my-metrics" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.statisticsservice.domain" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -130,45 +140,44 @@
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
+    <option name="configurationStatuses">
+      <map>
+        <entry key="SpringBootApplicationConfigurationType">
+          <value>
+            <map>
+              <entry key="AccountServiceApplication" value="STOPPED" />
+              <entry key="AuthServiceApplication" value="STOPPED" />
+              <entry key="ClientApplication" value="STOPPED" />
+              <entry key="EurekaApplication" value="STOPPED" />
+              <entry key="StatisticsServiceApplication" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
+  <component name="RunManager" selected="Spring Boot.AuthServiceApplication">
+    <configuration name="All in StatisticsServiceApplication" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/StatisticsServiceApplication.http">
+      <method v="2" />
+    </configuration>
+    <configuration name="StatisticsServiceApplication | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/StatisticsServiceApplication.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #4" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#4" index="4" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="AccountServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="account-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.accountservice.AccountServiceApplication" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="true" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-          <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH=".env" />
-        </ENTRIES>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="envFilePaths">
-        <option value="$PROJECT_DIR$/.env" />
-      </option>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="auth-service" />
-      <selectedOptions>
-        <option name="environmentVariables" />
-      </selectedOptions>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.authservice.AuthServiceApplication" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,46 +191,31 @@
       </method>
     </configuration>
     <configuration name="ConfigApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <option name="envFilePaths">
-        <option value="$PROJECT_DIR$/.env" />
-      </option>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="config" />
-      <selectedOptions>
-        <option name="environmentVariables" />
-      </selectedOptions>
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.config.ConfigApplication" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="true" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-          <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH=".env" />
-        </ENTRIES>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="EurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.eureka.EurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StatisticsServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="envFilePaths">
+        <option value="$PROJECT_DIR$/.env" />
+      </option>
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="statistics-service" />
       <selectedOptions>
         <option name="environmentVariables" />
       </selectedOptions>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.eureka.EurekaApplication" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="true" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-          <ENTRY IS_ENABLED="true" PARSER="env" IS_EXECUTABLE="false" PATH=".env" />
-        </ENTRIES>
-      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.statisticsservice.StatisticsServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -243,128 +237,79 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.mongodb/Dockerfile" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Spring Boot.ClientApplication" />
+      <item itemvalue="HTTP Request.All in StatisticsServiceApplication" />
+      <item itemvalue="HTTP Request.StatisticsServiceApplication | #1" />
+      <item itemvalue="HTTP Request.generated-requests | #4" />
       <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
       <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.mongodb/Dockerfile" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
         <item itemvalue="Docker.mongodb/Dockerfile" />
+        <item itemvalue="HTTP Request.StatisticsServiceApplication | #1" />
+        <item itemvalue="HTTP Request.All in StatisticsServiceApplication" />
+        <item itemvalue="HTTP Request.generated-requests | #4" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26574.91" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26574.91" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26830.84" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.26830.84" />
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d10f3b56-93c7-4ff7-8f26-15ca82ca3314" name="Changes" comment="" />
-      <created>1750044316251</created>
+      <changelist id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="" />
+      <created>1757339216436</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1750044316251</updated>
-      <workItem from="1750044317218" duration="4099000" />
-      <workItem from="1750062589171" duration="468000" />
-      <workItem from="1750063072136" duration="1862000" />
-      <workItem from="1750150325466" duration="3449000" />
-      <workItem from="1750164541374" duration="10170000" />
-      <workItem from="1750223595977" duration="15005000" />
-      <workItem from="1752077814019" duration="4194000" />
-      <workItem from="1752087288268" duration="2119000" />
-      <workItem from="1752150336445" duration="9573000" />
-      <workItem from="1752250569754" duration="8539000" />
-      <workItem from="1752513649011" duration="4337000" />
-      <workItem from="1752518253725" duration="578000" />
-      <workItem from="1752585715468" duration="22090000" />
-      <workItem from="1752854621734" duration="5192000" />
-      <workItem from="1752863490511" duration="2175000" />
-      <workItem from="1752865688796" duration="10000" />
-      <workItem from="1752867669986" duration="424000" />
-      <workItem from="1752902305319" duration="5262000" />
-      <workItem from="1753120447819" duration="2105000" />
-      <workItem from="1753267796247" duration="8428000" />
-      <workItem from="1753280117711" duration="19124000" />
-      <workItem from="1753527849144" duration="9434000" />
-      <workItem from="1753556195873" duration="13975000" />
-      <workItem from="1753629287712" duration="7335000" />
-      <workItem from="1753712081759" duration="16632000" />
+      <updated>1757339216436</updated>
+      <workItem from="1757339218312" duration="2218000" />
+      <workItem from="1757496952524" duration="47000" />
+      <workItem from="1757947332806" duration="2889000" />
+      <workItem from="1758106410011" duration="17478000" />
+      <workItem from="1758893285165" duration="1121000" />
+      <workItem from="1759162175563" duration="8534000" />
+      <workItem from="1759257160478" duration="444000" />
+      <workItem from="1759395978778" duration="10982000" />
+      <workItem from="1759428699302" duration="38000" />
+      <workItem from="1760169625571" duration="12456000" />
+      <workItem from="1760204125142" duration="6251000" />
+      <workItem from="1760272373685" duration="5549000" />
+      <workItem from="1760291391780" duration="3118000" />
+      <workItem from="1760766815996" duration="6901000" />
+      <workItem from="1760780294729" duration="38000" />
+      <workItem from="1760808518131" duration="2986000" />
+      <workItem from="1760852713320" duration="8086000" />
+      <workItem from="1761406117645" duration="11251000" />
     </task>
-    <task id="LOCAL-00001" summary="account service dto">
+    <task id="LOCAL-00001" summary="device bkp [lp]">
       <option name="closed" value="true" />
-      <created>1750050758748</created>
+      <created>1757947424792</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1750050758748</updated>
+      <updated>1757947424792</updated>
     </task>
-    <task id="LOCAL-00002" summary="packages">
+    <task id="LOCAL-00002" summary="fixed something">
       <option name="closed" value="true" />
-      <created>1750050771735</created>
+      <created>1759173836358</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1750050771735</updated>
+      <updated>1759173836358</updated>
     </task>
-    <task id="LOCAL-00003" summary="added config conf">
-      <option name="closed" value="true" />
-      <created>1750064056069</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1750064056069</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added user service mongo">
-      <option name="closed" value="true" />
-      <created>1751978915320</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1751978915320</updated>
-    </task>
-    <task id="LOCAL-00005" summary="ui">
-      <option name="closed" value="true" />
-      <created>1752260669218</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1752260669218</updated>
-    </task>
-    <task id="LOCAL-00006" summary="apiresponsedto + ui modal fix">
-      <option name="closed" value="true" />
-      <created>1753280249952</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1753280249952</updated>
-    </task>
-    <task id="LOCAL-00007" summary="wip">
-      <option name="closed" value="true" />
-      <created>1753554007660</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1753554007661</updated>
-    </task>
-    <task id="LOCAL-00008" summary="wip">
-      <option name="closed" value="true" />
-      <created>1753611379880</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1753611379880</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,45 +327,40 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial commit" />
-    <MESSAGE value="account service dto" />
-    <MESSAGE value="packages" />
-    <MESSAGE value="added files" />
-    <MESSAGE value="added config conf" />
-    <MESSAGE value="added user service mongo" />
-    <MESSAGE value="ui" />
-    <MESSAGE value="apiresponsedto + ui modal fix" />
-    <MESSAGE value="wip" />
-    <option name="LAST_COMMIT_MESSAGE" value="wip" />
+    <MESSAGE value="device bkp [lp]" />
+    <MESSAGE value="fixed something" />
+    <MESSAGE value="tokenexchange + webclient" />
+    <option name="LAST_COMMIT_MESSAGE" value="tokenexchange + webclient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>87</line>
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>29</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>88</line>
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>28</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>89</line>
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>31</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java</url>
-          <line>90</line>
+          <url>file://$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/service/UserServiceImpl.java</url>
+          <line>33</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

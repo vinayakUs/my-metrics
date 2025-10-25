@@ -7,9 +7,19 @@ spring:
     oauth2:
       client:
         registration:
+          account-service-tex-client:
+            provider: spring
+            client-id: account-service
+            client-secret: token
+            authorization-grant-type: urn:ietf:params:oauth:grant-type:token-exchange
+            client-name: account-service-tex-client
+            scope:
+              - message.read
+              - message.write
+
           messaging-client-oidc:
             provider: spring
-            client-id: messaging-client
+            client-id: backend-client
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: 'http://127.0.0.1:8080/login/oauth2/code/{registrationId}'
@@ -17,9 +27,21 @@ spring:
             scope:
               - profile
               - openid
+
+
+          downstream-client:
+            provider: spring
+            client-id: backend-client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: 'http://127.0.0.1:8080/post-connect'
+            client-name: downstream-client
+            scope:
+              - message.read
+              - message.write
           messaging-client-creds-oidc:
             provider: spring
-            client-id: messaging-client
+            client-id: backend-client
             client-secret: secret
             authorization-grant-type: client_credentials
             redirect-uri: 'http://127.0.0.1:8080/login/oauth2/code/{registrationId}'
