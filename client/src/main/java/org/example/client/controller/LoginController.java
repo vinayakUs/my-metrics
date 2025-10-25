@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.client.ClientAuthorizationRequiredException;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
 import org.springframework.security.oauth2.client.web.reactive.function.client.ServletOAuth2AuthorizedClientExchangeFilterFunction;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -45,16 +46,16 @@ public class LoginController {
 
     @GetMapping("/")
     public String root() {
-        return "redirect:/index";
+        return "redirect:/dashboard";
     }
-
-    @GetMapping("/index")
-    public String index(Model model, @AuthenticationPrincipal OAuth2User principal) {
-        model.addAttribute("username", principal.getAttributes().get("sub"));
-
-
-        return "index";
-    }
+//
+//    @GetMapping("/index")
+//    public String index(Model model, @AuthenticationPrincipal OAuth2User principal) {
+//        model.addAttribute("username", principal.getAttributes().get("sub"));
+//
+//
+//        return "index";
+//    }
 
 
     @GetMapping("/dashboard")
@@ -70,7 +71,7 @@ public class LoginController {
         try {
             System.out.println(principal.getAttributes().get("sub"));
             String response = webClient.build().get().uri("http://ACCOUNT-SERVICE/accounts/user/" + principal.getAttributes().get("sub"))
-                    .attributes(ServletOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId("messaging-client-creds-oidc"))
+                    .attributes(ServletOAuth2AuthorizedClientExchangeFilterFunction.clientRegistrationId("messaging-client-oidc"))
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
@@ -83,7 +84,13 @@ public class LoginController {
             model.addAttribute("account", account);
 
 
-        } catch (Exception e) {
+        } catch (ClientAuthorizationRequiredException ex){
+            System.out.println("x-x-xx--xx--x-x-x-x-x-x" + ex.getMessage());
+            return "redirect:/oauth2/authorization/messaging-client-oidc";
+
+        }
+
+        catch (Exception e) {
             System.out.println(e.getMessage());
             model.addAttribute("status", 500);
             model.addAttribute("message", e.getMessage());

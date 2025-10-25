@@ -24,8 +24,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
+import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.security.oauth2.core.oidc.OidcScopes;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.authorization.OAuth2Authorization;
+import org.springframework.security.oauth2.server.authorization.OAuth2TokenType;
 import org.springframework.security.oauth2.server.authorization.client.InMemoryRegisteredClientRepository;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClientRepository;
@@ -33,6 +36,8 @@ import org.springframework.security.oauth2.server.authorization.config.annotatio
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.server.authorization.settings.AuthorizationServerSettings;
 import org.springframework.security.oauth2.server.authorization.settings.ClientSettings;
+import org.springframework.security.oauth2.server.authorization.token.JwtEncodingContext;
+import org.springframework.security.oauth2.server.authorization.token.OAuth2TokenCustomizer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
@@ -46,6 +51,8 @@ import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import static org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer.authorizationServer;
@@ -159,14 +166,17 @@ public class AuthorizationServerConfig {
                 .build();
 
         RegisteredClient accountService = RegisteredClient.withId(UUID.randomUUID().toString())
-                .clientId("account-servicex")
-                .clientSecret("$2a$12$ex9E7l70fUByOs75rCcV8.GEBhxIWrpNJtjfdM.w2pt6Q0bgteR8q")
+                .clientId("account-service")
+                .clientSecret("$2a$12$6iTx73/UU1Vfn.LJcc4bN.MBuwVHj5ZMpfquofTbCHBlsgzf98L.G")
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-//                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+                .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
                 .scope("message.read")   // ✅ allowed scope(s)
                 .scope("message.write")  // optional
                 .authorizationGrantType(new AuthorizationGrantType("urn:ietf:params:oauth:grant-type:token-exchange"))
-                .clientSettings(ClientSettings.builder().requireAuthorizationConsent(false).build())
+                .clientSettings(ClientSettings.builder()
+                        .setting("audience", List.of("stats-service"))
+                        .requireAuthorizationConsent(false).build())
                 .build();
 
 //http://localhost:9000/oauth2/authorize?response_type=code&client_id=backend-client&scope=user.read&redirect_uri=http://127.0.0.1:9000/login/oauth2/code/backend-client
@@ -200,6 +210,25 @@ public class AuthorizationServerConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
+    }
+
+
+    @Bean
+    public OAuth2TokenCustomizer<JwtEncodingContext> jwtCustomizer() {
+        return context -> {
+            if (!OAuth2TokenType.ACCESS_TOKEN.equals(context.getTokenType())) {
+                return;
+            }
+
+            RegisteredClient client = context.getRegisteredClient();
+            Map<String, Object> clientSettings = client.getClientSettings().getSettings();
+
+            // 👇 Read audience from client metadata if present
+            Object audValue = clientSettings.get("audience");
+            if (audValue instanceof List<?> audList && !audList.isEmpty()) {
+                context.getClaims().claim("aud", audList);
+            }
+        };
     }
 
 

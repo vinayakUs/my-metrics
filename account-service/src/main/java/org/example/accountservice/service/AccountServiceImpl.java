@@ -34,7 +34,6 @@ public class AccountServiceImpl implements AccountService {
 
 	private final AuthServiceClient authClient;
 
-    private final StatisticsServiceClient statisticsClient;
 
 	/**
 	 * {@inheritDoc}
@@ -116,8 +115,6 @@ public class AccountServiceImpl implements AccountService {
 			existing.setIncomes(account.getIncomes());
 			existing.setExpenses(account.getExpenses());
 			repo.save(existing);
-
-            statisticsClient.postStatistic(existing).block();
 
 
 			return existing;

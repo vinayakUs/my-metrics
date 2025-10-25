@@ -21,7 +21,7 @@ spring:
             provider: spring
             client-id: backend-client
             client-secret: secret
-            authorization-grant-type: urn:ietf:params:oauth:grant-type:token-exchange
+            authorization-grant-type: authorization_code
             redirect-uri: 'http://127.0.0.1:8080/login/oauth2/code/{registrationId}'
             client-name: messaging-client-oidc
             scope:
@@ -31,7 +31,7 @@ spring:
 
           downstream-client:
             provider: spring
-            client-id: messaging-client
+            client-id: backend-client
             client-secret: secret
             authorization-grant-type: authorization_code
             redirect-uri: 'http://127.0.0.1:8080/post-connect'

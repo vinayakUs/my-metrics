@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="fixed something">
+    <list default="true" id="b3fcb195-e646-453d-8cfe-c08b7dff5512" name="Changes" comment="tokenexchange + webclient">
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/ResourceServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/TokenExchangeConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/Controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/ResourceServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/StatisticsServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/client/StatisticsServiceClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/java/org/example/accountservice/service/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/account-service/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/AuthorizationServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth-service/src/main/java/com/example/authservice/config/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/config/WebClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/config/WebClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/example/client/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/controller/StatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/controller/StatisticsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/repository/DataPointRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/repository/DataPointRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/StatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/java/org/example/statisticsservice/service/StatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/statistics-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +65,9 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Security Analysis" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -132,6 +149,7 @@
               <entry key="AuthServiceApplication" value="STOPPED" />
               <entry key="ClientApplication" value="STOPPED" />
               <entry key="EurekaApplication" value="STOPPED" />
+              <entry key="StatisticsServiceApplication" value="STOPPED" />
             </map>
           </value>
         </entry>
@@ -219,17 +237,17 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Docker.mongodb/Dockerfile" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="HTTP Request.All in StatisticsServiceApplication" />
       <item itemvalue="HTTP Request.StatisticsServiceApplication | #1" />
       <item itemvalue="HTTP Request.generated-requests | #4" />
-      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.AuthServiceApplication" />
       <item itemvalue="Spring Boot.ClientApplication" />
-      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
-      <item itemvalue="Spring Boot.AccountServiceApplication" />
       <item itemvalue="Spring Boot.ConfigApplication" />
+      <item itemvalue="Spring Boot.EurekaApplication" />
+      <item itemvalue="Spring Boot.StatisticsServiceApplication" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.mongodb/Dockerfile" />
     </list>
     <recent_temporary>
       <list>
@@ -273,6 +291,7 @@
       <workItem from="1760780294729" duration="38000" />
       <workItem from="1760808518131" duration="2986000" />
       <workItem from="1760852713320" duration="8086000" />
+      <workItem from="1761406117645" duration="11251000" />
     </task>
     <task id="LOCAL-00001" summary="device bkp [lp]">
       <option name="closed" value="true" />
@@ -310,7 +329,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="device bkp [lp]" />
     <MESSAGE value="fixed something" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed something" />
+    <MESSAGE value="tokenexchange + webclient" />
+    <option name="LAST_COMMIT_MESSAGE" value="tokenexchange + webclient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

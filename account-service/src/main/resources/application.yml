@@ -13,7 +13,28 @@ spring:
 #          spring:
 #            issuer-uri: http://localhost:9000
 
+      client:
+        registration:
 
+          account-service-client-credentials:
+            client-secret: token
+            provider: spring
+            client-name: account-service-client-credentials
+            client-id: account-service
+            authorization-grant-type: client_credentials
+            scope: message.read,message.write
+
+          account-service-as-stat-service-token-exchange:
+            client-id: account-service
+            client-name: account-service-as-stat-service-token-exchange
+            client-secret: token
+            authorization-grant-type: urn:ietf:params:oauth:grant-type:token-exchange
+            provider: spring
+            scope: message.read,message.write
+
+        provider:
+          spring:
+            issuer-uri: http://localhost:9000
 
       resourceserver:
         jwt:

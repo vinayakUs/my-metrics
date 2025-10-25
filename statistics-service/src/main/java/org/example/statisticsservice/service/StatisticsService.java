@@ -18,6 +18,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -28,7 +29,7 @@ public class StatisticsService {
 
     private final DataPointRepository dataPointRepository;
 
-    public DataPoint save(Account account , String accountName) {
+    public Optional<DataPoint> save(Account account , String accountName) {
 
         Instant now = LocalDate.now().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant();
         DataPointId dataPointId = new DataPointId(accountName , Date.from(now));
@@ -49,7 +50,7 @@ public class StatisticsService {
         dataPoint.setStatistics(statistic);
         dataPoint.setRates(rateService.getCurrentRates());
 
-        return dataPointRepository.save(dataPoint);
+        return dataPointRepository.saveDataPoint(dataPoint);
 
     }
 
