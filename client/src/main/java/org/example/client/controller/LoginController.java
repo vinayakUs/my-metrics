@@ -75,7 +75,7 @@ public class LoginController {
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
-            System.out.println(response);
+            System.out.println("response"+response);
             Account account = objectMapper.readValue(response, new TypeReference<ApiResponseDto<Account>>() {
             }).getData();
 

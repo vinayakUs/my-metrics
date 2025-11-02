@@ -9,7 +9,9 @@ import java.math.BigDecimal;
 @Data
 public class Item {
 
-	@NotNull
+    private String id;
+
+    @NotNull
 	@Length(min = 1, max = 20)
 	private String title;
 
@@ -64,4 +66,11 @@ public class Item {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getId() {
+        return id;
+    }
 }

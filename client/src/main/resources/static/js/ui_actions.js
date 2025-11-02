@@ -64,6 +64,25 @@ function addItem(type){
 }
 
 
+function removeIncomeItem(button){
+    const id = button.dataset.id;
+    const item = document.getElementById(id);
+    if (item) item.remove();
+    if(window.initialAccount.incomes && Array.isArray(window.initialAccount.incomes)){
+        window.initialAccount.incomes = window.initialAccount.incomes.filter((income) => income.id !== id);
+    }
+    console.log("Removed incomes with id:", id);
+}
+function removeExpenseItem(button){
+    const id = button.dataset.id;
+    const item = document.getElementById(id);
+    if (item) item.remove();
+    if(window.initialAccount.expenses && Array.isArray(window.initialAccount.expenses)){
+        window.initialAccount.expenses = window.initialAccount.expenses.filter((expenses) => expenses.id !== id);
+    }
+    console.log("Removed expenses with id:", id);
+}
+
 
 function toggleModal(type, open) {
     const modalId = type === 'income' ? 'incomeModal' : 'expenseModal';

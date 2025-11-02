@@ -2,6 +2,8 @@ package org.example.accountservice.domain;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.bson.codecs.pojo.annotations.BsonId;
 import org.bson.types.ObjectId;
 import org.hibernate.validator.constraints.Length;
@@ -11,6 +13,7 @@ import jakarta.validation.constraints.NotNull;
 public class Item {
 
     @BsonId
+    @JsonSerialize(using = ToStringSerializer.class)
     private ObjectId id =  new ObjectId();
 
 	@NotNull
@@ -68,4 +71,16 @@ public class Item {
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "amount=" + amount +
+                ", id=" + id +
+                ", title='" + title + '\'' +
+                ", currency=" + currency +
+                ", period=" + period +
+                ", icon='" + icon + '\'' +
+                '}';
+    }
 }
