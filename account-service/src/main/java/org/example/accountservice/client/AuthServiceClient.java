@@ -18,7 +18,7 @@ public class AuthServiceClient {
 
     public AuthServiceClient(WebClient.Builder clientBuilder) {
         this.webClient  = clientBuilder
-                .baseUrl("http://localhost:9000") // ✅ explicitly set the correct port
+                .baseUrl("http://AUTH-SERVICE") // ✅ explicitly set the correct port
 //                .defaultHeaders(headers -> headers.setBasicAuth("user", "abc"))
                 .build();
 //        this.webClient = clientBuilder.baseUrl(authServiceHost)

@@ -38,7 +38,6 @@ public class AccountController {
 	public ResponseEntity<ApiResponseDto<Account>> getAccount(@Valid @NotNull @PathVariable String userName) {
 		
 		Account acc	= accountService.findByUserName(userName);
-        System.out.println(acc.getIncomes().get(0).toString());
 		return  ResponseEntity.ok(new ApiResponseDto<Account>(
 				true , acc
 		));
